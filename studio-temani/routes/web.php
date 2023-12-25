@@ -13,16 +13,6 @@ use App\Http\Controllers\Account;
 use App\Http\Controllers\Tagihan;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 // Index
 Route::get('/', [FirstPageController::class, 'index']);
@@ -89,3 +79,7 @@ Route::get('/configacc', [Account::class, 'configacc']);
 
 // Tagihan
 Route::get('/tagihan', [Tagihan::class, 'tagihan']);
+
+// Upload
+Route::post('/upload', [UploadController::class, 'store']);
+Route::patch('/upload', [UploadController::class, 'patch']);

@@ -10,6 +10,7 @@ use App\Models\SelfPhoto;
 use App\Models\CreativeSpace;
 use App\Models\SelfSession;
 use App\Models\CreaSpace;
+use App\Models\TemporaryFile;
 use App\Models\Package;
 use App\Models\FamilyPhoto;
 use App\Models\Quote;
@@ -30,6 +31,7 @@ class Studio extends Controller
             'familyphotos' => FamilyPhoto::find(1),
             'selfsessions' => SelfSession::find(1),
             'creaspaces' => CreaSpace::find(1),
+            'temps' => TemporaryFile::find(1),
         ];
 
         return view('studio', $post);

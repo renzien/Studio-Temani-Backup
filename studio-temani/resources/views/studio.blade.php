@@ -73,7 +73,7 @@
         </div>
         <div class="grid grid-cols-3 pt-15 pl-15">
             <div class="max-w-sm rounded-lg overflow-hidden shadow-lg" data-aos="flip-left" data-aos-duration="1000">
-                <img src="assets/img/family-photo2.png" alt="Studio Temani" class="w-full">
+                <img src="storage/photos/{{ $temps->folder.'/'.$temps->filename }}" alt="Studio Temani" class="w-full">
                 <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2">{{ $familyphotos->title }}</div>
                     <div class="text-black text-base text-justify">

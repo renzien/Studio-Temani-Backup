@@ -54,6 +54,6 @@
 <script src="assets/css/filepond-plugin-image-resize/filepond-plugin-image-resize.min.js"></script>
 <script src="assets/css/filepond/filepond.js"></script>
 <script src="assets/js/filepond.js"></script>
-
+@yield('scripts')
 {{-- Toastify --}}
 <script src="assets/js/toastify-js/src/toastify.js"></script>

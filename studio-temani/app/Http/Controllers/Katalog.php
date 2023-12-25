@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\FamilyPhoto;
 use App\Models\SelfSession;
 use App\Models\CreaSpace;
+use App\Models\TemporaryFile;
 
 class Katalog extends Controller
 {
@@ -41,6 +42,14 @@ class Katalog extends Controller
             'descpack' => $request->input('descpack')
         ];
 
+        $temporaryFile = TemporaryFile::where('folder', $request->photo)->first();
+        if ($temporaryFile) {
+            $familyphoto->addMedia(storage_path('app/public/photos/' . $request->photo . '/' . $temporaryFile->filename))
+                ->toMediaCollection('familyphoto');
+            rmdir(storage_path('storage/photos' . $request->photo));
+            $temporaryFile->delete();
+        }
+    
         $familyphoto->update($data);
         return redirect('/familyphoto');
     }

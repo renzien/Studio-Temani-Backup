@@ -63,16 +63,32 @@
                         </div>
                         <div class="card-content">
                             <div class="card-body">
+                                <p class="card-text">
+                                    <b>Format :</b><br>
+                                    - Ukuran : 2008 x 1680
+                                </p>
                                 <!-- File uploader with image preview -->
                                 <input type="file" name="photo" id="photo" class="image-preview-filepond" />
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Upload</button>
-                    </div>
                 </div>
             </div>
         </section>
-    </div>
+    @section('scripts')
+        <script>
+            const inputElement = document.querySelector('input[type="photo"]');
+            const pond = FilePond.create(inputElement);
+            FilePond.setOptions({
+                server: {
+                    url: '/upload',
+                    patch: '/patch',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                }
+            })
+        </script>
+    @endsection
+</div>
 @endsection
