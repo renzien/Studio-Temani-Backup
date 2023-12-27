@@ -24,12 +24,18 @@ class Posting extends Controller
         // $home = Home::find(1);
         $post = [
             'homes' => Home::find(1),
-            'abouts' => About::find(1),
             'studios' => Studio::find(1),
             'pricelists' => Pricelist::find(1),
             'contacts' => Contact::find(1),
         ];
         return view('admin.layouts.adHome', $post);
+    }
+
+    public function aboutPosting() {
+        $postabout = [
+            'abouts' => About::all(),
+        ];
+        return view('admin.layouts.adAbout', $postabout);
     }
 
     public function pricelist() {
@@ -57,23 +63,57 @@ class Posting extends Controller
 
     // Update Home
     public function editHome(Request $request, Home $home) {
-        $data = [
-            'title' => $request->input('title'),
-            'tagline' => $request->input('tagline')
-        ];
+        $request->validate([
+            'title' => 'required',
+            'tagline' => 'required',
+            'photo' => 'required'
+        ]);
 
-        $home->update($data);
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = $file->getClientOriginalName();
+            $folder = uniqid() . '-' . now()->timestamp;
+            $file->storeAs('public/post-image/' . $folder, $filename);
+            $save = $folder . '/' . $filename;
+
+            $data = [
+                'title' => $request->input('title'),
+                'tagline' => $request->input('tagline'),
+                'photo' => $save
+            ];
+            
+            $home->update($data);
+            return redirect('/adminhome');
+        }
+
         return redirect('/adminhome');
     }
 
     public function editAbout(Request $request, About $about) {
-        $data = [
-            'title' => $request->input('title'),
-            'desc' => $request->input('desc')
-        ];
+        $request->validate([
+            'title' => 'required',
+            'desc' => 'required',
+            'photo' => 'required'
+        ]);
 
-        $about->update($data);
-        return redirect('/adminhome');
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = $file->getClientOriginalName();
+            $folder = uniqid() . '-' . now()->timestamp;
+            $file->storeAs('public/post-image/' . $folder, $filename);
+            $save = $folder . '/' . $filename;
+
+            $data = [
+                'title' => $request->input('title'),
+                'desc' => $request->input('desc'),
+                'photo' => $save
+            ];
+            
+            $about->update($data);
+            return redirect('/adminabout');
+        }
+
+        return redirect('/adminabout');
     }
 
     public function editStudio(Request $request, Studio $studio) {

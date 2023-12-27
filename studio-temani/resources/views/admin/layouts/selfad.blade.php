@@ -5,10 +5,9 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Edit Self-Photo</h3>
+                    <h3>Self Photo</h3>
                     <p class="text-subtitle text-muted">
-                        Silahkan edit foto yang ada pada halaman Self-Photo.
-                        Gunakan editor ini untuk melakukan edit pada halaman Self-Photo yang telah disediakan.
+                        List Postingan Untuk Self Photo
                     </p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
@@ -17,7 +16,7 @@
                             <li class="breadcrumb-item">
                                 <a href="/admin">Halaman Utama</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">
+                            <li class="breadcrumb-item Booked" aria-current="page">
                                 Self-Photo
                             </li>
                         </ol>
@@ -26,51 +25,91 @@
             </div>
         </div>
         <section class="section">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card-body">
-                        <form action="{{ route('editSelfSession', $selfsessions->id) }}" method="POST">
-                            @csrf
-                            @method('PUT')
-                            <div class="form-group">
-                                <label for="name" class="form-label">Judul Paket</label>
-                                <input type="text" name="title" id="name" class="form-control"
-                                    placeholder="Judul Paket">
-                            </div>
-                            <div class="form-group">
-                                <textarea name="descpack" id="default" cols="30" rows="10" placeholder="Masukkan Penjelasan Package"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Simpan</button>
-                            </div>
-                        </form>
-                    </div>
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">List Postingan</h5>
+                    <p class="text-subtitle text-muted">Postingan Self Foto</p>
+                    <a href="#" class="btn btn-primary mt-3">
+                        <i class="ri-add-line"></i>
+                        Tambah Produk
+                    </a>
                 </div>
-            </div>
-        </section>
-        <div class="col-12 col-md-6 order-md-1 mt-5 order-last">
-            <h3>Upload Foto</h3>
-            <p class="text-subtitle text-muted">
-                Silahkan masukan foto untuk contoh Self-Photo
-            </p>
-        </div>
-        <section class="section">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title">Image Preview</h5>
-                        </div>
-                        <div class="card-content">
-                            <div class="card-body">
-                                <!-- File uploader with image preview -->
-                                <input type="file" class="image-preview-filepond" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Upload</button>
-                    </div>
+                <div class="card-body">
+                    <table class="table table-striped" id="table1">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Deskripsi</th>
+                                <th>Foto</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ $selfsessions->title }}</td>
+                                <td>{!! $selfsessions->descpack !!}</td>
+                                <td>{{ $selfsessions->photo }}</td>
+                                <td>
+                                    <span class="badge bg-success">
+                                        Aktif
+                                    </span>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-info block" data-bs-toggle="modal"
+                                        data-bs-target="#border-less">
+                                        <i class="ri-pencil-line"></i>
+                                        Edit
+                                    </button>
+                                    <div class="modal fade text-left modal-borderless" id="border-less" tabindex="-1"
+                                        role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                        <div class="modal-dialog -scrollable" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Edit Postingan</h5>
+                                                    <button type="button" class="close rounded-pill"
+                                                        data-bs-dismiss="modal" aria-label="Close">
+                                                        <i class="ri-close-fill"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="{{ route('editSelfSession', $selfsessions->id) }}"
+                                                        method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <div class="form-group">
+                                                            <label for="name" class="form-label">Judul Paket</label>
+                                                            <input type="text" name="title" id="name"
+                                                                class="form-control" placeholder="Judul Paket">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="photo" class="form-label">Unggah File</label>
+                                                            <input type="file" name="photo" id="photo"
+                                                                class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
+                                                                  file:bg-gray-50 file:border-0
+                                                                  file:bg-gray-100 file:me-4
+                                                                  file:py-3 file:px-4
+                                                                  dark:file:bg-gray-700 dark:file:text-gray-400">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <textarea name="descpack" id="default" cols="30" rows="10" placeholder="Masukkan Penjelasan Package"></textarea>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="btn btn-sm btn-danger">
+                                        <i class="ri-delete-bin-line"></i>
+                                        Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>

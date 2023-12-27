@@ -7,6 +7,7 @@ use App\Models\FamilyPhoto;
 use App\Models\SelfSession;
 use App\Models\CreaSpace;
 use App\Models\TemporaryFile;
+use Illuminate\Support\Facades\Storage;
 
 class Katalog extends Controller
 {
@@ -37,42 +38,85 @@ class Katalog extends Controller
 
     // Function Family Photo
     public function editFamilyPhoto(Request $request, FamilyPhoto $familyphoto) {
-        $data = [
-            'title' => $request->input('title'),
-            'descpack' => $request->input('descpack')
-        ];
-
-        $temporaryFile = TemporaryFile::where('folder', $request->photo)->first();
-        if ($temporaryFile) {
-            $familyphoto->addMedia(storage_path('app/public/photos/' . $request->photo . '/' . $temporaryFile->filename))
-                ->toMediaCollection('familyphoto');
-            rmdir(storage_path('storage/photos' . $request->photo));
-            $temporaryFile->delete();
-        }
+        $request->validate([
+            'title' => 'required',
+            'descpack' => 'required',
+            'photo' => 'required'
+        ]);
     
-        $familyphoto->update($data);
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = $file->getClientOriginalName();
+            $folder = uniqid() . '-' . now()->timestamp;
+            $file->storeAs('public/post-image/' . $folder, $filename);
+            $save = $folder . '/' . $filename;
+
+            $data = [
+                'title' => $request->input('title'),
+                'descpack' => $request->input('descpack'),
+                'photo' => $save
+            ];
+            
+            $familyphoto->update($data);
+            return redirect('/familyphoto');
+        }
         return redirect('/familyphoto');
     }
 
+
+
     // Function Self Photo
     public function editSelfSession(Request $request, SelfSession $selfsession) {
-        $data = [
-            'title' => $request->input('title'),
-            'descpack' => $request->input('descpack')
-        ];
+        $request->validate([
+            'title' => 'required',
+            'descpack' => 'required',
+            'photo' => 'required'
+        ]);
 
-        $selfsession->update($data);
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = $file->getClientOriginalName();
+            $folder = uniqid() . '-' . now()->timestamp;
+            $file->storeAs('public/post-image/' . $folder, $filename);
+            $save = $folder . '/' . $filename;
+
+            $data = [
+                'title' => $request->input('title'),
+                'descpack' => $request->input('descpack'),
+                'photo' => $save
+            ];
+            
+            $selfsession->update($data);
+            return redirect('/selfphoto');
+        }
         return redirect('/selfphoto');
     }
 
     // Function Creative Space
     public function editCreaSpace(Request $request, CreaSpace $creaspace) {
-        $data = [
-            'title' => $request->input('title'),
-            'descpack' => $request->input('descpack')
-        ];
+        $request->validate([
+            'title' => 'required',
+            'descpack' => 'required',
+            'photo' => 'required'
+        ]);
 
-        $creaspace->update($data);
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = $file->getClientOriginalName();
+            $folder = uniqid() . '-' . now()->timestamp;
+            $file->storeAs('public/post-image/' . $folder, $filename);
+            $save = $folder . '/' . $filename;
+
+            $data = [
+                'title' => $request->input('title'),
+                'descpack' => $request->input('descpack'),
+                'photo' => $save
+            ];
+            
+            $creaspace->update($data);
+            return redirect('/creativestudio');
+        }
+
         return redirect('/creativestudio');
     }
 }

@@ -81,17 +81,48 @@
             </a>
           </li>
 
-          <li class="sidebar-item has-sub {{ request()->is(['adminhome', 'adminstudio', 'adminprice']) ? 'active' : ''}}">
+          <li class="sidebar-item has-sub {{ request()->is(['adminhome', 'adminabout', 'adminstudio', 'adminprice']) ? 'active' : ''}}">
             <a href="#" class="sidebar-link">
               <i class="ri-edit-line"></i>
               <span>Posting</span>
             </a>
 
             <ul class="submenu">
-              <li class="submenu-item">
-                <a href="/adminhome" class="submenu-link"
+              <li class="submenu-item has-sub">
+                <a href="#" class="submenu-link"
                   >Home</a
                 >
+                <ul class="submenu">
+                  <li class="submenu-item">
+                    <a href="/adminhome" class="submenu-link"
+                      >Hero Post</a
+                    >
+                  </li>
+
+                  <li class="submenu-item">
+                    <a href="/adminabout" class="submenu-link"
+                      >About Post</a
+                    >
+                  </li>
+
+                  <li class="submenu-item">
+                    <a href="#" class="submenu-link"
+                      >Studio Post</a
+                    >
+                  </li>
+
+                  <li class="submenu-item">
+                    <a href="#" class="submenu-link"
+                      >Pricelist Info Post</a
+                    >
+                  </li>
+
+                  <li class="submenu-item">
+                    <a href="#" class="submenu-link"
+                      >Contact Info Post</a
+                    >
+                  </li>
+                </ul>
               </li>
 
               <li class="submenu-item">

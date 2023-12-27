@@ -32,6 +32,11 @@ class UploadController extends Controller
                 'folder' => $request->folder,
                 'filename' => $request->filename
             ]);
+
+            return $temporaryFile->folder;
+
         }
+
+        return '';
     }
 }

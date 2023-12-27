@@ -40,6 +40,7 @@ Route::post('/register', [LoginController::class, 'registerProcess'])->name('reg
 
 // Home Posting
 Route::get('/adminhome', [Posting::class, 'posting']);
+Route::get('/adminabout', [Posting::class, 'aboutPosting']);
 Route::put('/adminhome/{home}', [Posting::class, 'editHome'])->name('editHome');
 Route::put('/adminhome/{about}/edit', [Posting::class, 'editAbout'])->name('editAbout');
 Route::put('/adminhome/{studio}/editstudio', [Posting::class, 'editStudio'])->name('editStudio');
@@ -82,4 +83,4 @@ Route::get('/tagihan', [Tagihan::class, 'tagihan']);
 
 // Upload
 Route::post('/upload', [UploadController::class, 'store']);
-Route::patch('/upload', [UploadController::class, 'patch']);
+Route::patch('/patch/{temporaryFiles}', [UploadController::class, 'patch']);

@@ -2,7 +2,7 @@
 @section('title', 'Home')
 @section('container')
     <header class="h-screen"
-        style="background-image: url('assets/img/bg-hero.png'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+        style="background-image: url('{{ asset('storage/post-image/'. $homes->photo) }}'); background-position: center; background-repeat: no-repeat; background-size: cover;">
         <div class="flex flex-col pl-44 justify-center h-4/5 text-white">
             <div class="mt-48">
                 <h1 class="text-2xl font-quicksand" data-aos="fade-up" data-aos-duration="1300">{{ $homes->title }}</h1>
@@ -25,15 +25,15 @@
             </div>
         </div>
         <div class="bg-studio-temani">
-            <div class="flex items-center justify-center mt-24 mb-20" data-aos="flip-right" data-aos-duration="1000">
-                <img src="assets/img/rectangle-3.png" alt="Studio Temani About">
+            <div class="flex items-center justify-center mt-20 mb-20" data-aos="flip-right" data-aos-duration="1000">
+                <img class="rounded-3xl" src="{{ asset('storage/post-image/'. $abouts->photo) }}" alt="Studio Temani About">
             </div>
         </div>
     </section>
     <section class="grid grid-cols-2">
         <div class="bg-studio-temani">
-            <div class="flex items-center justify-center mt-24 mb-20" data-aos="flip-left" data-aos-duration="1000">
-                <img src="assets/img/rectangle-4.png" alt="Studio Temani Studio">
+            <div class="flex items-center justify-center mt-20 mb-20" data-aos="flip-left" data-aos-duration="1000">
+                <img class="rounded-3xl" src="assets/img/studio-us.png" alt="Studio Temani Studio">
             </div>
         </div>
         <div class="studio text-black">
