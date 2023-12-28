@@ -33,7 +33,7 @@
     <section class="grid grid-cols-2">
         <div class="bg-studio-temani">
             <div class="flex items-center justify-center mt-20 mb-20" data-aos="flip-left" data-aos-duration="1000">
-                <img class="rounded-3xl" src="assets/img/studio-us.png" alt="Studio Temani Studio">
+                <img class="rounded-3xl" src="{{ asset('storage/post-image/'. $studios->photo) }}" alt="Studio Temani Studio">
             </div>
         </div>
         <div class="studio text-black">
@@ -51,7 +51,7 @@
         </div>
     </section>
     <section class="p-20"
-        style="background-image: url('assets/img/rectangle-6.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        style="background-image: url('{{ asset('storage/post-image/'. $pricelists->photo) }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
         <div class="flex flex-col items-center h-2/5 text-white font-quicksand">
             <h1 class="text-4xl font-bold leading-normal" data-aos="fade-left" data-aos-duration="1500">
                 {{ $pricelists->title }}</h1>

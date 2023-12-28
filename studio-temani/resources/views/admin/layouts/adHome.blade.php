@@ -17,10 +17,13 @@
                                 <a href="/admin">Halaman Utama</a>
                             </li>
                             <li class="breadcrumb-item">
+                                Posting
+                            </li>
+                            <li class="breadcrumb-item">
                                 Home
                             </li>
                             <li class="breadcrumb-item Booked" aria-current="page">
-                                Hero Posting
+                                Hero Post
                             </li>
                         </ol>
                     </nav>

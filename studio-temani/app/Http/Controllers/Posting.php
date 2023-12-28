@@ -24,9 +24,6 @@ class Posting extends Controller
         // $home = Home::find(1);
         $post = [
             'homes' => Home::find(1),
-            'studios' => Studio::find(1),
-            'pricelists' => Pricelist::find(1),
-            'contacts' => Contact::find(1),
         ];
         return view('admin.layouts.adHome', $post);
     }
@@ -36,6 +33,27 @@ class Posting extends Controller
             'abouts' => About::all(),
         ];
         return view('admin.layouts.adAbout', $postabout);
+    }
+
+    public function studioPosting() {
+        $poststudio = [
+            'studios' => Studio::all(),
+        ];
+        return view('admin.layouts.adStudio', $poststudio);
+    }
+
+    public function pricePosting() {
+        $postpriceposting = [
+            'pricelists' => Pricelist::all(),
+        ];
+        return view('admin.layouts.adPrice', $postpriceposting);
+    }
+
+    public function contactPosting() {
+        $postcontact = [
+            'contacts' => Contact::all()
+        ];
+        return view('admin.layouts.adContact', $postcontact);
     }
 
     public function pricelist() {
@@ -117,23 +135,57 @@ class Posting extends Controller
     }
 
     public function editStudio(Request $request, Studio $studio) {
-        $data = [
-            'title' => $request->input('title'),
-            'desc' => $request->input('desc')
-        ];
+        $request->validate([
+            'title' => 'required',
+            'desc' => 'required',
+            'photo' => 'required'
+        ]);
 
-        $studio->update($data);
-        return redirect('/adminhome');
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = $file->getClientOriginalName();
+            $folder = uniqid() . '-' . now()->timestamp;
+            $file->storeAs('public/post-image/' . $folder, $filename);
+            $save = $folder . '/' . $filename;
+
+            $data = [
+                'title' => $request->input('title'),
+                'desc' => $request->input('desc'),
+                'photo' => $save
+            ];
+            
+            $studio->update($data);
+            return redirect('/adminstudiopost');
+        }
+
+        return redirect('/adminstudiopost');
     }
 
     public function editPricelist(Request $request, Pricelist $pricelist) {
-        $data = [
-            'title' => $request->input('title'),
-            'desc' => $request->input('desc')
-        ];
+        $request->validate([
+            'title' => 'required',
+            'desc' => 'required',
+            'photo' => 'required'
+        ]);
 
-        $pricelist->update($data);
-        return redirect('/adminhome');
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = $file->getClientOriginalName();
+            $folder = uniqid() . '-' . now()->timestamp;
+            $file->storeAs('public/post-image/' . $folder, $filename);
+            $save = $folder . '/' . $filename;
+
+            $data = [
+                'title' => $request->input('title'),
+                'desc' => $request->input('desc'),
+                'photo' => $save
+            ];
+            
+            $pricelist->update($data);
+            return redirect('/adminpricepost');
+        }
+
+        return redirect('/adminpricepost');
     }
 
     public function editContact(Request $request, Contact $contact) {
@@ -142,7 +194,7 @@ class Posting extends Controller
         ];
 
         $contact->update($data);
-        return redirect('/adminhome');
+        return redirect('/admincontact');
     }
 
     // Update Pricelist

@@ -41,6 +41,11 @@ Route::post('/register', [LoginController::class, 'registerProcess'])->name('reg
 // Home Posting
 Route::get('/adminhome', [Posting::class, 'posting']);
 Route::get('/adminabout', [Posting::class, 'aboutPosting']);
+Route::get('/adminstudiopost', [Posting::class, 'studioPosting']);
+Route::get('/adminpricepost', [Posting::class, 'pricePosting']);
+Route::get('/admincontact', [Posting::class, 'contactPosting']);
+
+// Edit Function Admin
 Route::put('/adminhome/{home}', [Posting::class, 'editHome'])->name('editHome');
 Route::put('/adminhome/{about}/edit', [Posting::class, 'editAbout'])->name('editAbout');
 Route::put('/adminhome/{studio}/editstudio', [Posting::class, 'editStudio'])->name('editStudio');

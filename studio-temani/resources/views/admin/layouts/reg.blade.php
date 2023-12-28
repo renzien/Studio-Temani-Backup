@@ -41,12 +41,6 @@
                 </div>
             </div>
 
-            <div class="login__check">
-                <div class="login__check-group">
-                    <input type="checkbox" class="login__check-input">
-                    <label for="" class="login__check-label">Ingat Saya</label>
-                </div>
-            </div>
             <button class="login__button">Register</button>
             <p class="login__register">
                 Sudah Punya Akun ? <a href="/login">Login</a>

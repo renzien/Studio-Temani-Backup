@@ -35,7 +35,7 @@
                 <i class="ri-menu-line"></i>
             </a>
         </header>
-        @yield('homeeditor')
+        @yield('studioposting')
     </div>
 </body>
 <script src="assets/js/component/dark.js"></script>

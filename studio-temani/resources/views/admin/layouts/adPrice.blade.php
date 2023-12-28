@@ -1,13 +1,13 @@
-@extends('admin.aboutPosting')
-@section('title', 'About Editor')
-@section('aboutposting')
+@extends('admin.pricelistPosting')
+@section('title', 'Pricelist Editor')
+@section('priceposting')
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Posting About</h3>
+                    <h3>Posting Pricelist</h3>
                     <p class="text-subtitle text-muted">
-                        List Postingan Untuk Yang Tertera pada postingan About
+                        List Postingan Untuk Yang Tertera pada Posting Pricelist
                     </p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
@@ -18,12 +18,12 @@
                             </li>
                             <li class="breadcrumb-item">
                                 Posting
-                            </li>
+                            </li>                            
                             <li class="breadcrumb-item">
                                 Home
-                            </li>
+                            </li>                            
                             <li class="breadcrumb-item Booked" aria-current="page">
-                                About Post
+                                Pricelist Info Post
                             </li>
                         </ol>
                     </nav>
@@ -34,7 +34,7 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">List Postingan</h5>
-                    <p class="text-subtitle text-muted">Postingan Untuk Home</p>
+                    <p class="text-subtitle text-muted">Postingan Untuk Pricelist Post</p>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped" id="table1">
@@ -46,12 +46,12 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        @foreach ($abouts as $about)
                             <tbody>
+                                @foreach ($pricelists as $pricelist)
                                 <tr>
-                                    <td>{{ $about->title }}</td>
-                                    <td>{{ $about->desc }}</td>
-                                    <td>{{ $about->photo }}</td>
+                                    <td>{{ $pricelist->title }}</td>
+                                    <td>{{ $pricelist->desc }}</td>
+                                    <td>{{ $pricelist->photo }}</td>
                                     <td>
                                         <button type="button" class="btn btn-sm btn-info block" data-bs-toggle="modal"
                                             data-bs-target="#border-less">
@@ -70,19 +70,18 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="{{ route('editAbout', $about->id) }}" method="POST"
-                                                            enctype="multipart/form-data">
+                                                        <form action="{{ route('editPricelist', $pricelist->id) }}" method="POST" enctype="multipart/form-data">
                                                             @csrf
                                                             @method('PUT')
                                                             <div class="form-group">
                                                                 <label for="name" class="form-label">Judul</label>
                                                                 <input type="text" name="title" id="name"
-                                                                    class="form-control" placeholder="Nama Judul">
+                                                                    class="form-control" placeholder="Nama Studio">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="photo" class="form-label">Unggah File</label>
                                                                 <p class="text-subtitle text-muted">Ukuran Foto Recommended
-                                                                    506x626</p>
+                                                                    1440x654</p>
                                                                 <input type="file" name="photo" id="photo"
                                                                     class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
                                                           file:bg-gray-50 file:border-0
@@ -108,8 +107,8 @@
                                         </a>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
-                        @endforeach
                     </table>
                 </div>
             </div>
