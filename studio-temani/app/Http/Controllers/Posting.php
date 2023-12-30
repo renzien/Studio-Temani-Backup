@@ -71,12 +71,19 @@ class Posting extends Controller
     public function studio() {
         $poststudio = [
             'homestudios' => HomeStudio::find(1),
-            'studioequips' => StudioEquip::find(1),
             'quotes' => Quote::find(1),
             'packages' => Package::find(1),
         ];
 
         return view('admin.layouts.adminstudio', $poststudio);
+    }
+
+    public function equipStudio() {
+        $postequip = [
+            'studioequips' => StudioEquip::all()
+        ];
+
+        return view('admin.layouts.adList', $postequip);
     }
 
     // Update Home
@@ -281,12 +288,29 @@ class Posting extends Controller
     // Update Studio
 
     public function editHomeStudio(Request $request, HomeStudio $homestudio) {
-        $data = [
-            'title' => $request->input('title'),
-            'tagline' => $request->input('tagline')
-        ];
+        $request->validate([
+            'title' => 'required',
+            'tagline' => 'required',
+            'photo' => 'required'
+        ]);
 
-        $homestudio->update($data);
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = $file->getClientOriginalName();
+            $folder = uniqid() . '-' . now()->timestamp;
+            $file->storeAs('public/post-image/' . $folder, $filename);
+            $save = $folder . '/' . $filename;
+
+            $data = [
+                'title' => $request->input('title'),
+                'tagline' => $request->input('tagline'),
+                'photo' => $save
+            ];
+            
+            $homestudio->update($data);
+            return redirect('/adminstudio');
+        }
+
         return redirect('/adminstudio');
     }
 

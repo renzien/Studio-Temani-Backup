@@ -35,9 +35,10 @@
                 <i class="ri-menu-line"></i>
             </a>
         </header>
-        @yield('studioadmin')
+        @yield('listposting')
     </div>
 </body>
+@yield('script')
 <script src="assets/js/component/dark.js"></script>
 <script src="assets/js/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 {{-- App JS --}}

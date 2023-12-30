@@ -58,7 +58,7 @@ class Katalog extends Controller
             ];
             
             $familyphoto->update($data);
-            return redirect('/familyphoto');
+            return redirect('/familyphoto')->with('success', 'Data Paket Family Berhasil Diubah');
         }
         return redirect('/familyphoto');
     }
@@ -87,7 +87,7 @@ class Katalog extends Controller
             ];
             
             $selfsession->update($data);
-            return redirect('/selfphoto');
+            return redirect('/selfphoto')->with('success', 'Data Paket Self Session Berhasil Diubah');
         }
         return redirect('/selfphoto');
     }
@@ -114,7 +114,7 @@ class Katalog extends Controller
             ];
             
             $creaspace->update($data);
-            return redirect('/creativestudio');
+            return redirect('/creativestudio')->with('success', 'Data Paket Creative Space Berhasil Diubah');
         }
 
         return redirect('/creativestudio');

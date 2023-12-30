@@ -35,6 +35,12 @@
                     </a>
                 </div>
                 <div class="card-body">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            <i class="ri-checkbox-circle-line"></i>
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
@@ -49,7 +55,7 @@
                             <tr>
                                 <td>{{ $creaspaces->title }}</td>
                                 <td>{!! $creaspaces->descpack !!}</td>
-                                <td>076 4820 8838</td>
+                                <td>{{ $creaspaces->photo }}</td>
                                 <td>
                                     <span class="badge bg-success">
                                         Aktif

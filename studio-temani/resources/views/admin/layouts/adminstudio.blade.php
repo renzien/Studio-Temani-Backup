@@ -5,10 +5,9 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Edit Judul Studio Posting</h3>
+                    <h3>Posting Studio</h3>
                     <p class="text-subtitle text-muted">
-                        Gunakan posting editor ini untuk melakukan editing
-                        info judul studio yang telah disediakan.
+                        List Postingan Untuk Yang Tertera pada Studio Bagian Hero Post
                     </p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
@@ -17,8 +16,14 @@
                             <li class="breadcrumb-item">
                                 <a href="/admin">Halaman Utama</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">
+                            <li class="breadcrumb-item">
+                                Posting
+                            </li>
+                            <li class="breadcrumb-item">
                                 Studio
+                            </li>
+                            <li class="breadcrumb-item Booked" aria-current="page">
+                                Hero Post
                             </li>
                         </ol>
                     </nav>
@@ -26,197 +31,83 @@
             </div>
         </div>
         <section class="section">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Edit Judul Studio</h4>
-                        </div>
-                        <div class="card-body">
-                            <form action="{{ route('editHomeStudio', $homestudios->id) }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <div class="form-group">
-                                    <label for="name" class="form-label">Title Header</label>
-                                    <input type="text" name="title" id="name" class="form-control"
-                                        placeholder="Isi Title">
-                                </div>
-                                <div class="form-group">
-                                    <textarea name="tagline" id="default" cols="30" rows="10" placeholder="Isi Tagline"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">List Postingan</h5>
+                    <p class="text-subtitle text-muted">Postingan Untuk Hero Post</p>
                 </div>
-            </div>
-        </section>
-        <div class="col-12 col-md-6 order-md-1 order-last">
-            <h3>Edit Studio Equipment List</h3>
-            <p class="text-subtitle text-muted">
-                Gunakan posting editor ini untuk melakukan editing
-                info tentang Studio Equipment yang telah disediakan.
-            </p>
-        </div>
-        <section class="section">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Edit Judul Studio</h4>
-                        </div>
-                        <div class="card-body">
-                            <form action="{{ route('editStudioEquip', $studioequips->id) }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <div class="form-group">
-                                    <label for="name" class="form-label">Title Header</label>
-                                    <input type="text" name="title" id="name" class="form-control"
-                                        placeholder="Isi Title">
-                                </div>
-                                <div class="form-group">
-                                    <textarea name="tagline" id="default" cols="30" rows="10" placeholder="Isi Tagline"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="name" class="form-label">List 1 Text</label>
-                                    <input type="text" name="list1" id="name" class="form-control"
-                                        placeholder="Isi Title">
-                                </div>
-                                <div class="form-group">
-                                    <label for="name" class="form-label">List 2 Text</label>
-                                    <input type="text" name="list2" id="name" class="form-control"
-                                        placeholder="Isi Title">
-                                </div>
-                                <div class="form-group">
-                                    <label for="name" class="form-label">List 3 Text</label>
-                                    <input type="text" name="list3" id="name" class="form-control"
-                                        placeholder="Isi Title">
-                                </div>
-                                <div class="form-group">
-                                    <label for="name" class="form-label">List 4 Text</label>
-                                    <input type="text" name="list4" id="name" class="form-control"
-                                        placeholder="Isi Title">
-                                </div>
-                                <div class="form-group">
-                                    <label for="name" class="form-label">List 5 Text</label>
-                                    <input type="text" name="list5" id="name" class="form-control"
-                                        placeholder="Isi Title">
-                                </div>
-                                <div class="form-group">
-                                    <label for="name" class="form-label">List 6 Text</label>
-                                    <input type="text" name="list6" id="name" class="form-control"
-                                        placeholder="Isi Title">
-                                </div>
-                                <div class="form-group">
-                                    <textarea name="desc" id="default" cols="30" rows="10" placeholder="Isi Deskripsi Tentang List Diatas"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="col-12 col-md-6 order-md-1 order-last">
-            <h3>Edit Quotes Studio</h3>
-            <p class="text-subtitle text-muted">
-                Gunakan posting editor ini untuk menambahkan atau
-                mengedit quotes yang akan ditampilkan pada halaman
-            </p>
-        </div>
-        <section class="section">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Edit Quotes Studio</h4>
-                        </div>
-                        <div class="card-body">
-                            <form action="{{ route('editQuote', $quotes->id) }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <div class="form-group">
-                                    <label for="name" class="form-label">Author Name</label>
-                                    <input type="text" name="author" id="name" class="form-control"
-                                        placeholder="Nama Author">
-                                </div>
-                                <div class="form-group">
-                                    <textarea name="quote" id="default" cols="30" rows="10" placeholder="Masukkan Quotes"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="col-12 col-md-6 order-md-1 order-last">
-            <h3>Edit Packages Info</h3>
-            <p class="text-subtitle text-muted">
-                Gunakan posting editor ini untuk menambahkan atau
-                mengedit packages yang akan ditampilkan pada halaman
-            </p>
-        </div>
-        <section class="section">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Edit Package Info</h4>
-                        </div>
-                        <div class="card-body">
-                            <form action="{{ route('editPackage', $packages->id) }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <div class="form-group">
-                                    <label for="name" class="form-label">Title Header</label>
-                                    <input type="text" name="title" id="name" class="form-control"
-                                        placeholder="Judul Paket">
-                                </div>
-                                <div class="form-group">
-                                    <textarea name="descpack" id="default" cols="30" rows="10" placeholder="Masukkan Penjelasan Package"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="col-12 col-md-6 order-md-1 order-last">
-            <h3>Upload Foto</h3>
-            <p class="text-subtitle text-muted">
-                Silahkan masukan foto dengan rename sesuai dengan yang dibutuhkan.
-            </p>
-        </div>
-        <section class="section">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title">Multiple Foto Uploader</h5>
-                        </div>
-                        <div class="card-content">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    <b>Format: </b> <br>
-                                    <b>1. </b> Foto Home: <b>hero.jpg/.png</b> <br>
-                                    <b>2. </b> Foto About: <b>about.jpg/.png</b> <br>
-                                    <b>3. </b> Foto Pricelist: <b>pricelist.jpg/.png</b> <br>
-                                </p>
-                                <!-- File uploader with multiple files upload -->
-                                <input type="file" class="multiple-files-filepond" multiple />
-                            </div>
-                        </div>
-                    </div>
+                <div class="card-body">
+                    <table class="table table-striped" id="table1">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Deskripsi</th>
+                                <th>Foto</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ $homestudios->title }}</td>
+                                <td>{{ $homestudios->tagline }}</td>
+                                <td>{{ $homestudios->photo }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-info block" data-bs-toggle="modal"
+                                        data-bs-target="#border-less">
+                                        <i class="ri-pencil-line"></i>
+                                        Edit
+                                    </button>
+                                    <div class="modal fade text-left modal-borderless" id="border-less" tabindex="-1"
+                                        role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                        <div class="modal-dialog -scrollable" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Edit Postingan</h5>
+                                                    <button type="button" class="close rounded-pill"
+                                                        data-bs-dismiss="modal" aria-label="Close">
+                                                        <i class="ri-close-fill"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="{{ route('editHomeStudio', $homestudios->id) }}" method="POST"
+                                                        enctype="multipart/form-data">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <div class="form-group">
+                                                            <label for="name" class="form-label">Judul</label>
+                                                            <input type="text" name="title" id="name"
+                                                                class="form-control" placeholder="Nama Studio">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="photo" class="form-label">Unggah File</label>
+                                                            <p class="text-subtitle text-muted">Ukuran Foto Recommended
+                                                                3840x2560</p>
+                                                            <input type="file" name="photo" id="photo"
+                                                                class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
+                                                          file:bg-gray-50 file:border-0
+                                                          file:bg-gray-100 file:me-4
+                                                          file:py-3 file:px-4
+                                                          dark:file:bg-gray-700 dark:file:text-gray-400">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <textarea name="tagline" id="default" cols="30" rows="10" placeholder="Masukkan Penjelasan Package"></textarea>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="btn btn-sm btn-danger">
+                                        <i class="ri-delete-bin-line"></i>
+                                        Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>

@@ -3,7 +3,7 @@
 @section('container2')
     <header class="grid grid-cols-2">
         <div class="bg-studio-temani">
-            <div class="flex items-center pb-15" data-aos="flip-left" data-aos-duration="1000">
+            <div class="flex items-center pb-5" data-aos="flip-left" data-aos-duration="1000">
                 <div class="flex items-center justify-center pt-15">
                     <img src="assets/img/studio_logo.png" alt="Studio Temani" class="w-1/2" data-aos="fade-down"
                         data-aos-duration="1000">
@@ -11,7 +11,7 @@
             </div>
             <div class="font-quicksand text-white pb-27.5 pt-15">
                 <div class="flex items-center justify-center">
-                    <h1 class="font-light text-3xl" data-aos="fade-down" data-aos-duration="1100">{{ $homestudios->title }}</h1>
+                    <h1 class="font-light text-3xl mb-10" data-aos="fade-down" data-aos-duration="1100">{{ $homestudios->title }}</h1>
                 </div>
                 <div class="flex items-center justify-center font-bold text-3xl text-center pr-20 pl-20" data-aos="fade-down" data-aos-duration="1200">
                     {!! $homestudios->tagline !!}
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="studio text-black"
-            style="background-image: url('assets/img/hero-studio.jpg'); background-repeat: no-repeat; background-size: cover;">
+            style="background-image: url('{{ asset('storage/post-image/'. $homestudios->photo) }}'); background-repeat: no-repeat; background-size: cover;">
         </div>
     </header>
     <section class="grid grid-cols-2">

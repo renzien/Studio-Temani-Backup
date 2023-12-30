@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="assets/css/app-dark.css">
 
+    {{-- Sweet Alert --}}
+    <link rel="stylesheet" href="assets/css/sweetalert2/sweetalert2.min.css">
+
     {{-- Filepond --}}
     <link rel="stylesheet" href="assets/css/filepond/filepond.css">
     <link rel="stylesheet" href="assets/css/filepond-plugin-image-preview/filepond-plugin-image-preview.css">
@@ -45,6 +48,11 @@
 {{-- Tiny MCE --}}
 <script src="assets/js/tinymce/tinymce.min.js"></script>
 <script src="assets/js/tinymce/static/pages/tinymce.js"></script>
+
+{{-- Sweet Alert --}}
+<script src="assets/js/sweetalert2/sweetalert2.min.js"></script>
+<script src="assets/js/sweetalert2.js"></script>
+
 {{-- Filepond --}}
 <script src="assets/css/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js"></script>
 <script src="assets/css/filepond-plugin-file-validate-type/filepond-plugin-file-validate-type.min.js"></script>
@@ -55,6 +63,6 @@
 <script src="assets/css/filepond-plugin-image-resize/filepond-plugin-image-resize.min.js"></script>
 <script src="assets/css/filepond/filepond.js"></script>
 <script src="assets/js/filepond.js"></script>
-@yield('scripts')
+
 {{-- Toastify --}}
 <script src="assets/js/toastify-js/src/toastify.js"></script>
