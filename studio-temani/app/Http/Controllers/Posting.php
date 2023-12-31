@@ -315,20 +315,38 @@ class Posting extends Controller
     }
 
     public function editStudioEquips(Request $request, StudioEquip $studioequip){
-        $data = [
-            'title' => $request->input('title'),
-            'tagline' => $request->input('tagline'),
-            'list1' => $request->input('list1'),
-            'list2' => $request->input('list2'),
-            'list3' => $request->input('list3'),
-            'list4' => $request->input('list4'),
-            'list5' => $request->input('list5'),
-            'list6' => $request->input('list6'),
-            'desc' => $request->input('desc'),
-        ];
+        $request->validate([
+            'title' => 'required',
+            'tagline' => 'required',
+            'desc' => 'required',
+            'photo' => 'required'
+        ]);
 
-        $studioequip->update($data);
-        return redirect('/adminstudio');
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = $file->getClientOriginalName();
+            $folder = uniqid() . '-' . now()->timestamp;
+            $file->storeAs('public/post-image/' . $folder, $filename);
+            $save = $folder . '/' . $filename;
+
+            $data = [
+                'title' => $request->input('title'),
+                'tagline' => $request->input('tagline'),
+                'list1' => $request->input('list1'),
+                'list2' => $request->input('list2'),
+                'list3' => $request->input('list3'),
+                'list4' => $request->input('list4'),
+                'list5' => $request->input('list5'),
+                'list6' => $request->input('list6'),
+                'desc' => $request->input('desc'),
+                'photo' => $save
+            ];
+            
+            $studioequip->update($data);
+            return redirect('/adminequip');
+        }
+
+        return redirect('/adminequip');
     }
 
     public function editQuote(Request $request, Quote $quote){

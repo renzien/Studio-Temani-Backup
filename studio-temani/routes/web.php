@@ -65,7 +65,7 @@ Route::get('/adminstudio', [Posting::class, 'studio']);
 Route::get('/adminequip', [Posting::class, 'equipStudio']);
 
 Route::put('/adminstudio/{homestudio}', [Posting::class, 'editHomeStudio'])->name('editHomeStudio');
-Route::put('/adminstudio/{studioequip}/editstudioequip', [Posting::class, 'editStudioEquips'])->name('editStudioEquip');
+Route::put('/adminstudio/{studioequip}/editstudioequips', [Posting::class, 'editStudioEquips'])->name('editStudioEquips');
 Route::put('/adminstudio/{quote}/editquote', [Posting::class, 'editQuote'])->name('editQuote');
 Route::put('/adminstudio/{package}/editpackage', [Posting::class, 'editPackage'])->name('editPackage');
 

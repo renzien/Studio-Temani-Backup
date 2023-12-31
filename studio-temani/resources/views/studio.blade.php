@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="flex items-center justify center pt-25 mb-28 pl-20" data-aos="flip-right" data-aos-duration="1000">
-            <img src="assets/img/studio-rectangle.png" alt="Studio Temani">
+            <img class="rounded-3xl" src="{{ asset('storage/post-image/'. $studioequips->photo) }}" alt="Studio Temani">
         </div>
     </section>
     <section class="w-full" style="background-image: url('assets/img/studio_quotes.png'); background-repeat: no-repeat;">

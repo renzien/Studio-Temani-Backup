@@ -5,7 +5,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Posting Perlengakapn List</h3>
+                    <h3>Posting Perlengkapan List</h3>
                     <p class="text-subtitle text-muted">
                         List Postingan Untuk Yang Tertera pada Studio Bagian List Perlengkapan
                     </p>
@@ -74,18 +74,23 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="" method="POST" enctype="multipart/form-data">
+                                                        <form action="{{ route('editStudioEquips', $studioequip->id) }}" method="POST" enctype="multipart/form-data">
                                                             @csrf
                                                             @method('PUT')
                                                             <div class="form-group">
                                                                 <label for="name" class="form-label">Judul</label>
-                                                                <input type="text" name="title" id="name"
+                                                                <input type="text" name="title" id="title"
                                                                     class="form-control" placeholder="Judul Postingan">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="name" class="form-label">Tagline</label>
+                                                                <input type="text" name="tagline" id="tagline"
+                                                                    class="form-control" placeholder="Tagline Postingan">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="photo" class="form-label">Unggah File</label>
                                                                 <p class="text-subtitle text-muted">Ukuran Foto Recommended
-                                                                    3840x2560</p>
+                                                                    547x804</p>
                                                                 <input type="file" name="photo" id="photo"
                                                                     class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
                                                       file:bg-gray-50 file:border-0
@@ -104,7 +109,7 @@
                                                                     class="btn btn-outline-success">Tambah List</button>
                                                             </div>
                                                             <div class="form-group">
-                                                                <textarea name="tagline" id="default" cols="30" rows="10" placeholder="Masukkan Penjelasan Package"></textarea>
+                                                                <textarea name="desc" id="default" cols="30" rows="10" placeholder="Masukkan Penjelasan Package"></textarea>
                                                             </div>
                                                             <div class="form-group">
                                                                 <button type="submit"
@@ -139,6 +144,7 @@
                 newInput.name = 'list' + totalInput;
                 newInput.id = 'list' + totalInput;
                 newInput.className = 'form-control';
+                newInput.placeholder = 'Masukan List';
 
                 // Buat Label
                 var newLabel = document.createElement("label");
