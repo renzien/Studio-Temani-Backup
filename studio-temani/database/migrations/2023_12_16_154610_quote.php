@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text('quote');
             $table->string('author');
+            $table->string('photo');
             $table->timestamps();
         });
     }

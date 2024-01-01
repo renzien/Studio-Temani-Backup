@@ -63,6 +63,7 @@ Route::put('/adminprice/{creativespace}/editcreativespace', [Posting::class, 'ed
 // Studio Posting
 Route::get('/adminstudio', [Posting::class, 'studio']);
 Route::get('/adminequip', [Posting::class, 'equipStudio']);
+Route::get('/adminquote', [Posting::class, 'quotesPosting']);
 
 Route::put('/adminstudio/{homestudio}', [Posting::class, 'editHomeStudio'])->name('editHomeStudio');
 Route::put('/adminstudio/{studioequip}/editstudioequips', [Posting::class, 'editStudioEquips'])->name('editStudioEquips');

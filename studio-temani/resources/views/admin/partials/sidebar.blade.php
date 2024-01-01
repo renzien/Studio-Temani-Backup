@@ -60,6 +60,7 @@
                         'admincontact',
                         'adminstudio',
                         'adminequip',
+                        'adminquote',
                         'adminprice',
                     ])
                         ? 'active'
@@ -112,7 +113,7 @@
                                 </li>
 
                                 <li class="submenu-item">
-                                    <a href="#" class="submenu-link">
+                                    <a href="/adminquote" class="submenu-link">
                                         Quotes Harian Post
                                     </a>
                                 </li>

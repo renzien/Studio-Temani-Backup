@@ -71,7 +71,6 @@ class Posting extends Controller
     public function studio() {
         $poststudio = [
             'homestudios' => HomeStudio::find(1),
-            'quotes' => Quote::find(1),
             'packages' => Package::find(1),
         ];
 
@@ -84,6 +83,14 @@ class Posting extends Controller
         ];
 
         return view('admin.layouts.adList', $postequip);
+    }
+
+    public function quotesPosting() {
+        $postquote = [
+            'quotes' => Quote::all()
+        ];
+
+        return view('admin.layouts.adQuotes', $postquote);
     }
 
     // Update Home
@@ -350,13 +357,30 @@ class Posting extends Controller
     }
 
     public function editQuote(Request $request, Quote $quote){
-        $data = [
-            'quote' => $request->input('quote'),
-            'author' => $request->input('author'),
-        ];
+        $request->validate([
+            'quote' => 'required',
+            'author' => 'required',
+            'photo' => 'required'
+        ]);
 
-        $quote->update($data);
-        return redirect('/adminstudio');
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = $file->getClientOriginalName();
+            $folder = uniqid() . '-' . now()->timestamp;
+            $file->storeAs('public/post-image/' . $folder, $filename);
+            $save = $folder . '/' . $filename;
+
+            $data = [
+                'quote' => $request->input('quote'),
+                'author' => $request->input('author'),
+                'photo' => $save
+            ];
+            
+            $quote->update($data);
+            return redirect('/adminquote');
+        }
+
+        return redirect('/adminquote');
     }
 
     public function editPackage(Request $request, Package $package) {

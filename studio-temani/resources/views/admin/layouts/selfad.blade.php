@@ -118,6 +118,26 @@
                     </table>
                 </div>
             </div>
+            <div class="form-group">
+                <h3>Preview Card</h3>
+                <p class="text-subtitle text-muted">
+                    Tampilan yang terlihat pada Halaman Utama
+                </p>
+            </div>
+            <div class="form-group">
+                <div class="col-xl-4 col-md-6 col-sm-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <img src="{{ asset('storage/post-image/' . $selfsessions->photo) }}"
+                                class="card-img-top img-fluid" alt="singleminded" />
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $selfsessions->title }}</h5>
+                                <div class="card-text">{!! $selfsessions->descpack !!}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
         </section>
     </div>
 @endsection

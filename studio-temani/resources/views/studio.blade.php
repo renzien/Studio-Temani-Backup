@@ -49,10 +49,10 @@
             <img class="rounded-3xl" src="{{ asset('storage/post-image/'. $studioequips->photo) }}" alt="Studio Temani">
         </div>
     </section>
-    <section class="w-full" style="background-image: url('assets/img/studio_quotes.png'); background-repeat: no-repeat;">
+    <section class="w-full" style="background-image: url('{{ asset('storage/post-image/'. $quotes->photo) }}'); background-repeat: no-repeat;">
         <div class="flex flex-col items-center text-white font-quicksand" data-aos="fade-right" data-aos-duration="1100">
             <div class="text-3xl font-bold pt-30 pl-35 pr-35 mb-10 text-center">
-                {!! $quotes->quote  !!}
+                {!! $quotes->quote !!}
             </div>
         </div>
         <div class="flex flex-col items-center">

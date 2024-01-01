@@ -155,7 +155,8 @@ class DatabaseSeeder extends Seeder
 
         Quote::create([
             'quote' => 'Kita tidak akan pernah tahu, sampai kita mencoba.',
-            'author' => 'Albert Einstein'
+            'author' => 'Albert Einstein',
+            'photo' => 'bg-hero-2.jpg'
         ]);
 
         Package::create([
