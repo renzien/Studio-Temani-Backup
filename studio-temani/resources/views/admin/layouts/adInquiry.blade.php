@@ -1,13 +1,13 @@
-@extends('admin.quotesposting')
-@section('title', 'Quotes Posting')
-@section('quotesposting')
+@extends('admin.inquirypost')
+@section('title', 'Edit Inquiry')
+@section('inquiryposting')
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Posting Quotes</h3>
+                    <h3>Posting Inquiry</h3>
                     <p class="text-subtitle text-muted">
-                        List Postingan Untuk Yang Tertera pada Studio Bagian Quotes
+                        List Postingan Untuk Yang Tertera pada Studio Bagian Inquiry Post
                     </p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
@@ -20,10 +20,10 @@
                                 Posting
                             </li>
                             <li class="breadcrumb-item">
-                                Studio
+                                Pricelist
                             </li>
                             <li class="breadcrumb-item Booked" aria-current="page">
-                                Quotes Post
+                                Inquiry Post
                             </li>
                         </ol>
                     </nav>
@@ -34,23 +34,23 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">List Postingan</h5>
-                    <p class="text-subtitle text-muted">Postingan Untuk Quotes</p>
+                    <p class="text-subtitle text-muted">Postingan Untuk Inquiry</p>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
-                                <th>Author</th>
-                                <th>Quotes</th>
+                                <th>Judul</th>
+                                <th>Desc</th>
                                 <th>Photo</th>
                             </tr>
                         </thead>
-                        @foreach ($quotes as $q)
+                        @foreach ($inquirys as $iq)
                             <tbody>
                                 <tr>
-                                    <td>{{ $q->author }}</td>
-                                    <td>{{ $q->quote }}</td>
-                                    <td>{{ $q->photo }}</td>
+                                    <td>{{ $iq->title }}</td>
+                                    <td>{{ $iq->desc }}</td>
+                                    <td>{{ $iq->photo }}</td>
                                     <td>
                                         <button type="button" class="btn btn-sm btn-info block" data-bs-toggle="modal"
                                             data-bs-target="#border-less">
@@ -69,18 +69,18 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="{{ route('editQuote', $q->id) }}" method="POST" enctype="multipart/form-data">
+                                                        <form action="{{ route('editInquiry', $iq->id) }}" method="POST" enctype="multipart/form-data">
                                                             @csrf
                                                             @method('PUT')
                                                             <div class="form-group">
                                                                 <label for="name" class="form-label">Judul</label>
-                                                                <input type="text" name="author" id="author"
-                                                                    class="form-control" placeholder="Nama Author">
+                                                                <input type="text" name="title" id="title"
+                                                                    class="form-control" placeholder="Judul Postingan">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="photo" class="form-label">Unggah File</label>
                                                                 <p class="text-subtitle text-muted">Ukuran Foto Recommended
-                                                                    547x804</p>
+                                                                    1440x550</p>
                                                                 <input type="file" name="photo" id="photo"
                                                                     class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
                                                   file:bg-gray-50 file:border-0
@@ -89,8 +89,9 @@
                                                   dark:file:bg-gray-700 dark:file:text-gray-400">
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="name" class="form-label">Tulis Quotes</label>
-                                                                <textarea name="quote" id="default" cols="30" rows="10" placeholder="Masukkan Quotes"></textarea>
+                                                                <label for="name" class="form-label">Isi
+                                                                    Deskripsi</label>
+                                                                <textarea name="desc" id="default" cols="30" rows="10" placeholder="Deskripsi Katalog"></textarea>
                                                             </div>
                                                             <div class="form-group">
                                                                 <button type="submit"

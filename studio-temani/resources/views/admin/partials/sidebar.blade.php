@@ -61,6 +61,8 @@
                         'adminstudio',
                         'adminequip',
                         'adminquote',
+                        'adminpackage',
+                        'admininquiry',
                         'adminprice',
                     ])
                         ? 'active'
@@ -119,15 +121,46 @@
                                 </li>
 
                                 <li class="submenu-item">
-                                    <a href="#" class="submenu-link">
+                                    <a href="/adminpackage" class="submenu-link">
                                         Katalog Desc Post
                                     </a>
                                 </li>
                             </ul>
                         </li>
 
-                        <li class="submenu-item">
-                            <a href="/adminprice" class="submenu-link">Pricelist</a>
+                        <li class="submenu-item has-sub">
+                            <a href="#" class="submenu-link">Pricelist</a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="/adminprice" class="submenu-link">
+                                        Hero Post
+                                    </a>
+                                </li>
+
+                                <li class="submenu-item">
+                                    <a href="/admininquiry" class="submenu-link">
+                                        Inquiry Post
+                                    </a>
+                                </li>
+
+                                <li class="submenu-item">
+                                    <a href="#" class="submenu-link">
+                                        Pricelist Family Post
+                                    </a>
+                                </li>
+
+                                <li class="submenu-item">
+                                    <a href="#" class="submenu-link">
+                                        Self-Photo Post
+                                    </a>
+                                </li>
+
+                                <li class="submenu-item">
+                                    <a href="#" class="submenu-link">
+                                        Creative Studio Space Post
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </li>

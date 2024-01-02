@@ -30,7 +30,7 @@
                 </div>
                 <div class="flex flex-row py-10">
                     <input type="radio" name="bca" id="">
-                    <img class="w-1/2 px-5" src="{{ asset('assets/img/BCA.png') }}" alt="logo pembayaran">
+                    <img class="w-1/2 px-5" src="{{ asset('assets/img/BCA.webp') }}" alt="logo pembayaran">
                 </div>
             </div>
         </div>

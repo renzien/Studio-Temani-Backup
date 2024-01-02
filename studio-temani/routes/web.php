@@ -54,6 +54,9 @@ Route::put('/adminhome/{contact}/editcontact', [Posting::class, 'editContact'])-
 
 // Pricelist Posting
 Route::get('/adminprice', [Posting::class, 'pricelist']);
+Route::get('/admininquiry', [Posting::class, 'inquiryPosting']);
+
+// Edit Function Admin
 Route::put('/adminprice/{pricelisthome}', [Posting::class, 'editPricelistHome'])->name('editPricelistHome');
 Route::put('/adminprice/{inquiry}/editinquiry', [Posting::class, 'editInquiry'])->name('editInquiry');
 Route::put('/adminprice/{family}/editfamily', [Posting::class, 'editFamily'])->name('editFamily');
@@ -64,7 +67,9 @@ Route::put('/adminprice/{creativespace}/editcreativespace', [Posting::class, 'ed
 Route::get('/adminstudio', [Posting::class, 'studio']);
 Route::get('/adminequip', [Posting::class, 'equipStudio']);
 Route::get('/adminquote', [Posting::class, 'quotesPosting']);
+Route::get('/adminpackage', [Posting::class, 'packagePosting']);
 
+// Edit Function Admin
 Route::put('/adminstudio/{homestudio}', [Posting::class, 'editHomeStudio'])->name('editHomeStudio');
 Route::put('/adminstudio/{studioequip}/editstudioequips', [Posting::class, 'editStudioEquips'])->name('editStudioEquips');
 Route::put('/adminstudio/{quote}/editquote', [Posting::class, 'editQuote'])->name('editQuote');

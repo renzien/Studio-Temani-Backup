@@ -20,11 +20,11 @@
         </div>
         <div class="bg-studio-temani">
             <div class="flex items-center justify-center mt-20 mb-28 ml-11" data-aos="flip-left" data-aos-duration="1000">
-                <img src="assets/img/pricelist.png" alt="Studio Temani">
+                <img class="rounded-3xl" src="{{ asset('storage/post-image/'. $pricelisthomes->photo) }}" alt="Studio Temani">
             </div>
         </div>
     </div>
-    <section class="h-full" style="background-image: url('assets/img/inquiry_hero2.png'); background-repeat: no-repeat;">
+    <section class="h-full" style="background-image: url('{{ asset('storage/post-image/'. $inquirys->photo) }}'); background-repeat: no-repeat;">
         <div class="flex flex-col items-center text-white font-quicksand">
             <h1 class="text-3xl font-bold pt-14 leading-normal" data-aos="fade-right" data-aos-duration="1500">
                 {{ $inquirys->title }}</h1>

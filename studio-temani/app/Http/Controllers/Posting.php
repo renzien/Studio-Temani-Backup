@@ -59,7 +59,6 @@ class Posting extends Controller
     public function pricelist() {
         $postprice = [
             'pricelisthomes' => PricelistHome::find(1),
-            'inquirys' => Inquiry::find(1),
             'familys' => Family::find(1),
             'selfphotos' => SelfPhoto::find(1),
             'creativespaces' => CreativeSpace::find(1),
@@ -71,7 +70,6 @@ class Posting extends Controller
     public function studio() {
         $poststudio = [
             'homestudios' => HomeStudio::find(1),
-            'packages' => Package::find(1),
         ];
 
         return view('admin.layouts.adminstudio', $poststudio);
@@ -91,6 +89,22 @@ class Posting extends Controller
         ];
 
         return view('admin.layouts.adQuotes', $postquote);
+    }
+
+    public function packagePosting() {
+        $postpackage = [
+            'packages' => Package::all()
+        ];
+
+        return view('admin.layouts.adPackage', $postpackage);
+    }
+
+    public function inquiryPosting() {
+        $postinquiry = [
+            'inquirys' => Inquiry::all()
+        ];
+
+        return view('admin.layouts.adInquiry', $postinquiry);
     }
 
     // Update Home
@@ -213,23 +227,57 @@ class Posting extends Controller
 
     // Update Pricelist
     public function editPricelistHome(Request $request, PricelistHome $pricelisthome) {
-        $data = [
-            'title' => $request->input('title'),
-            'desc' => $request->input('desc')
-        ];
+        $request->validate([
+            'title' => 'required',
+            'desc' => 'required',
+            'photo' => 'required'
+        ]);
 
-        $pricelisthome->update($data);
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = $file->getClientOriginalName();
+            $folder = uniqid() . '-' . now()->timestamp;
+            $file->storeAs('public/post-image/' . $folder, $filename);
+            $save = $folder . '/' . $filename;
+
+            $data = [
+                'title' => $request->input('title'),
+                'desc' => $request->input('desc'),
+                'photo' => $save
+            ];
+            
+            $pricelisthome->update($data);
+            return redirect('/adminprice');
+        }
+
         return redirect('/adminprice');
     }
 
     public function editInquiry(Request $request, Inquiry $inquiry) {
-        $data = [
-            'title' => $request->input('title'),
-            'desc' => $request->input('desc')
-        ];
+        $request->validate([
+            'title' => 'required',
+            'desc' => 'required',
+            'photo' => 'required'
+        ]);
 
-        $inquiry->update($data);
-        return redirect('/adminprice');
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = $file->getClientOriginalName();
+            $folder = uniqid() . '-' . now()->timestamp;
+            $file->storeAs('public/post-image/' . $folder, $filename);
+            $save = $folder . '/' . $filename;
+
+            $data = [
+                'title' => $request->input('title'),
+                'desc' => $request->input('desc'),
+                'photo' => $save
+            ];
+            
+            $inquiry->update($data);
+            return redirect('/admininquiry');
+        }
+
+        return redirect('/admininquiry');
     }
 
     public function editFamily(Request $request, Family $family) {
@@ -384,12 +432,17 @@ class Posting extends Controller
     }
 
     public function editPackage(Request $request, Package $package) {
+        $request->validate([
+            'title' => 'required',
+            'descpack' => 'required'
+        ]);
+
         $data = [
             'title' => $request->input('title'),
             'descpack' => $request->input('descpack')
         ];
 
         $package->update($data);
-        return redirect('/adminstudio');
+        return redirect('/adminpackage');
     }
 }
