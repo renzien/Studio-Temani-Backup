@@ -105,8 +105,8 @@
                                                                     <input type="text" name="list1" id="list1"
                                                                         class="form-control" placeholder="Masukan List">
                                                                 </div>
-                                                                <button type="button" onclick="addInput()"
-                                                                    class="btn btn-outline-success">Tambah List</button>
+                                                                <button type="button" onclick="addInput()" class="btn btn-outline-success">Tambah List</button>
+                                                                <button type="button" onclick="removeInput()" class="btn btn-outline-danger">Hapus List</button>
                                                             </div>
                                                             <div class="form-group">
                                                                 <textarea name="desc" id="default" cols="30" rows="10" placeholder="Masukkan Penjelasan Package"></textarea>
@@ -155,6 +155,16 @@
                 // Masuk container
                 container.appendChild(newLabel);
                 container.appendChild(newInput);
+            }
+
+            function removeInput() {
+                var container = document.getElementById("inputContainer");
+                var totalInput = container.getElementsByTagName("input").length;
+
+                if (totalInput > 1) {
+                    container.removeChild(container.lastChild);
+                    container.removeChild(container.lastChild);
+                }
             }
         </script>
     @endsection

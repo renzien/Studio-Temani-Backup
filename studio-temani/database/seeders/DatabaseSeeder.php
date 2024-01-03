@@ -88,16 +88,16 @@ class DatabaseSeeder extends Seeder
 
         Family::create([
             'title' => 'Sesi Foto Keluarga',
-            'tagone' => '//Studio Besar',
-            'descone' => '(Hanya Tersedia Background Putih)',
-            'tagtwo' => '//30 Minut per Sesi',
-            'desctwo' => '(Bebas Potret)',
-            'unit' => '5 - 7 Pax',
-            'price' => '200K',
-            'descprice' => 'Dapat 3 Print Foto 4R',
-            'unitprice' => '8 - 10 Pax',
-            'pricetwo' => '300K',
-            'descpricetwo' => 'Dapat 5 Print Foto 4R',
+            'tag1' => '//Studio Besar',
+            'desc1' => '(Hanya Tersedia Background Putih)',
+            'tag2' => '//30 Minut per Sesi',
+            'desc2' => '(Bebas Potret)',
+            'unit1' => '5 - 7 Pax',
+            'price1' => '200K',
+            'descprice1' => 'Dapat 3 Print Foto 4R',
+            'unit2' => '8 - 10 Pax',
+            'price2' => '300K',
+            'descprice2' => 'Dapat 5 Print Foto 4R',
             'photo' => 'bg-hero-2.jpg'
         ]);
 

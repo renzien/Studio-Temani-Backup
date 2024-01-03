@@ -59,7 +59,6 @@ class Posting extends Controller
     public function pricelist() {
         $postprice = [
             'pricelisthomes' => PricelistHome::find(1),
-            'familys' => Family::find(1),
             'selfphotos' => SelfPhoto::find(1),
             'creativespaces' => CreativeSpace::find(1),
         ];
@@ -105,6 +104,14 @@ class Posting extends Controller
         ];
 
         return view('admin.layouts.adInquiry', $postinquiry);
+    }
+
+    public function pricefamilyPosting() {
+        $postfamily = [
+            'familys' => Family::all()
+        ];
+
+        return view('admin.layouts.adPriceFamily', $postfamily);
     }
 
     // Update Home
@@ -281,22 +288,49 @@ class Posting extends Controller
     }
 
     public function editFamily(Request $request, Family $family) {
-        $data = [
-            'title' => $request->input('title'),
-            'tagone' => $request->input('tagone'),
-            'descone' => $request->input('descone'),
-            'tagtwo' => $request->input('tagtwo'),
-            'desctwo' => $request->input('desctwo'),
-            'unit' => $request->input('unit'),
-            'price' => $request->input('price'),
-            'descprice' => $request->input('descprice'),
-            'unitprice' => $request->input('unitprice'),
-            'pricetwo' => $request->input('pricetwo'),
-            'descpricetwo' => $request->input('descpricetwo'),
-        ];
+        $request->validate([
+            'title' => 'required',
+            'tagone' => 'required',
+            'descone' => 'required',
+            'tagtwo' => 'required',
+            'desctwo' => 'required',
+            'unit' => 'required',
+            'price' => 'required',
+            'descprice' => 'required',
+            'unitprice' => 'required',
+            'pricetwo' => 'required',
+            'descpricetwo' => 'required',
+            'photo' => 'required'
+        ]);
+        
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = $file->getClientOriginalName();
+            $folder = uniqid() . '-' . now()->timestamp;
+            $file->storeAs('public/family-image/' . $folder, $filename);
+            $save = $folder . '/' . $filename;
 
-        $family->update($data);
-        return redirect('/adminprice');
+            $data = [
+                'title' => $request->input('title'),
+                'tagone' => $request->input('tagone'),
+                'descone' => $request->input('descone'),
+                'tagtwo' => $request->input('tagtwo'),
+                'desctwo' => $request->input('desctwo'),
+                'unit' => $request->input('unit'),
+                'price' => $request->input('price'),
+                'descprice' => $request->input('descprice'),
+                'unitprice' => $request->input('unitprice'),
+                'pricetwo' => $request->input('pricetwo'),
+                'descpricetwo' => $request->input('descpricetwo'),
+                'photo' => $save
+            ];
+            
+            dd($data);
+            $family->update($data);
+            return redirect('/adminfamily');
+        }
+
+        return redirect('/adminfamily');
     }
 
     public function editSelfPhoto(Request $request, SelfPhoto $selfphoto) {

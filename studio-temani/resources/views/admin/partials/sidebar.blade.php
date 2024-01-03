@@ -62,6 +62,7 @@
                         'adminequip',
                         'adminquote',
                         'adminpackage',
+                        'adminfamily',
                         'admininquiry',
                         'adminprice',
                     ])
@@ -144,7 +145,7 @@
                                 </li>
 
                                 <li class="submenu-item">
-                                    <a href="#" class="submenu-link">
+                                    <a href="/adminfamily" class="submenu-link">
                                         Pricelist Family Post
                                     </a>
                                 </li>

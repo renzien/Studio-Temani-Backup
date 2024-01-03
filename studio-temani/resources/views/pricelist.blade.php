@@ -46,41 +46,41 @@
             </div>
             <div class="text-justify py-10 ml-20 mr-28">
                 <div class="font-quicksand py-8" data-aos="fade-up" data-aos-duration="600">
-                    <h3 class="text-2xl font-bold leading-normal">{{ $familys->tagone }}</h3>
+                    <h3 class="text-2xl font-bold leading-normal">{{ $familys->tag1 }}</h3>
                     <div class="text-lg leading-normal">
-                        {!! $familys->descone !!}
+                        {!! $familys->desc1 !!}
                     </div>
                 </div>
                 <div class="font-quicksand pb-20" data-aos="fade-up" data-aos-duration="700">
-                    <h3 class="text-2xl font-bold leading-normal">{{ $familys->tagtwo }}</h3>
+                    <h3 class="text-2xl font-bold leading-normal">{{ $familys->tag2 }}</h3>
                     <div class="text-lg leading-normal">
-                        {!! $familys->desctwo !!}
+                        {!! $familys->desc2 !!}
                     </div>
                 </div>
                 <div class="font-quicksand" data-aos="fade-up" data-aos-duration="800">
                     <div class="flex flex-row">
-                        <h3 class="text-2xl font-bold leading-normal">{{ $familys->unit }}</h3>
-                        <h3 class="text-2xl font-bold leading-normal pl-25">{{ $familys->price }}</h3>
+                        <h3 class="text-2xl font-bold leading-normal">{{ $familys->unit1 }}</h3>
+                        <h3 class="text-2xl font-bold leading-normal pl-25">{{ $familys->price1 }}</h3>
                     </div>
                     <div class="text-lg leading-normal">
-                        {!! $familys->descprice !!}
+                        {!! $familys->descprice1 !!}
                     </div>
                 </div>
                 <div class="border-b py-3 w-3/5"></div>
                 <div class="font-quicksand py-9" data-aos="fade-up" data-aos-duration="900">
                     <div class="flex flex-row">
-                        <h3 class="text-2xl font-bold leading-normal">{{ $familys->unitprice }}</h3>
-                        <h3 class="text-2xl font-bold leading-normal pl-22">{{ $familys->pricetwo }}</h3>
+                        <h3 class="text-2xl font-bold leading-normal">{{ $familys->unit2 }}</h3>
+                        <h3 class="text-2xl font-bold leading-normal pl-22">{{ $familys->price2 }}</h3>
                     </div>
                     <div class="text-lg leading-normal">
-                        {!! $familys->descpricetwo !!}
+                        {!! $familys->descprice2 !!}
                     </div>
                 </div>
             </div>
         </div>
         <div class="bg-studio-temani">
             <div class="flex items-center justify-center mt-24 mb-20">
-                <img src="assets/img/family.png" alt="Studio Temani About">
+                <img class="rounded-3xl" src="assets/img/Family-3.png" alt="Studio Temani About">
             </div>
         </div>
     </section>
@@ -88,7 +88,7 @@
     <section class="grid grid-cols-2">
         <div class="bg-studio-temani">
             <div class="flex items-center justify-center mt-24 mb-20">
-                <img src="assets/img/self-photo.png" alt="Studio Temani Studio">
+                <img class="rounded-3xl" src="assets/img/self-photo-3.png" alt="Studio Temani Studio">
             </div>
         </div>
         <div class="studio text-black pr-10">
@@ -183,7 +183,7 @@
         </div>
         <div class="bg-studio-temani">
             <div class="flex items-center justify-center mt-24 mb-20">
-                <img src="assets/img/creative-studio.png" alt="Studio Temani About">
+                <img class="rounded-3xl" src="assets/img/creative-space-2.png" alt="Studio Temani About">
             </div>
         </div>
     </section>
