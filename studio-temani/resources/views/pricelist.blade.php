@@ -60,7 +60,7 @@
                 <div class="font-quicksand" data-aos="fade-up" data-aos-duration="800">
                     <div class="flex flex-row">
                         <h3 class="text-2xl font-bold leading-normal">{{ $familys->unit1 }}</h3>
-                        <h3 class="text-2xl font-bold leading-normal pl-25">{{ $familys->price1 }}</h3>
+                        <h3 class="text-2xl font-bold leading-normal pl-25">{{ $familys->price1 }} K</h3>
                     </div>
                     <div class="text-lg leading-normal">
                         {!! $familys->descprice1 !!}
@@ -70,7 +70,7 @@
                 <div class="font-quicksand py-9" data-aos="fade-up" data-aos-duration="900">
                     <div class="flex flex-row">
                         <h3 class="text-2xl font-bold leading-normal">{{ $familys->unit2 }}</h3>
-                        <h3 class="text-2xl font-bold leading-normal pl-22">{{ $familys->price2 }}</h3>
+                        <h3 class="text-2xl font-bold leading-normal pl-22">{{ $familys->price2 }} K</h3>
                     </div>
                     <div class="text-lg leading-normal">
                         {!! $familys->descprice2 !!}
@@ -80,7 +80,7 @@
         </div>
         <div class="bg-studio-temani">
             <div class="flex items-center justify-center mt-24 mb-20">
-                <img class="rounded-3xl" src="assets/img/Family-3.png" alt="Studio Temani About">
+                <img class="rounded-3xl" src="{{ asset('storage/family-image/'. $familys->photo) }}" alt="Studio Temani About">
             </div>
         </div>
     </section>

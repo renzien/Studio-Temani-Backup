@@ -290,16 +290,16 @@ class Posting extends Controller
     public function editFamily(Request $request, Family $family) {
         $request->validate([
             'title' => 'required',
-            'tagone' => 'required',
-            'descone' => 'required',
-            'tagtwo' => 'required',
-            'desctwo' => 'required',
-            'unit' => 'required',
-            'price' => 'required',
-            'descprice' => 'required',
-            'unitprice' => 'required',
-            'pricetwo' => 'required',
-            'descpricetwo' => 'required',
+            'tag1' => 'required',
+            'desc1' => 'required',
+            'tag2' => 'required',
+            'desc2' => 'required',
+            'unit1' => 'required',
+            'price1' => 'required',
+            'descprice1' => 'required',
+            'unit2' => 'required',
+            'price2' => 'required',
+            'descprice2' => 'required',
             'photo' => 'required'
         ]);
         
@@ -312,20 +312,19 @@ class Posting extends Controller
 
             $data = [
                 'title' => $request->input('title'),
-                'tagone' => $request->input('tagone'),
-                'descone' => $request->input('descone'),
-                'tagtwo' => $request->input('tagtwo'),
-                'desctwo' => $request->input('desctwo'),
-                'unit' => $request->input('unit'),
-                'price' => $request->input('price'),
-                'descprice' => $request->input('descprice'),
-                'unitprice' => $request->input('unitprice'),
-                'pricetwo' => $request->input('pricetwo'),
-                'descpricetwo' => $request->input('descpricetwo'),
+                'tag1' => $request->input('tag1'),
+                'desc1' => $request->input('desc1'),
+                'tag2' => $request->input('tag2'),
+                'desc2' => $request->input('desc2'),
+                'unit1' => $request->input('unit1'),
+                'price1' => $request->input('price1'),
+                'descprice1' => $request->input('descprice1'),
+                'unit2' => $request->input('unit2'),
+                'price2' => $request->input('price2'),
+                'descprice2' => $request->input('descprice2'),
                 'photo' => $save
             ];
-            
-            dd($data);
+
             $family->update($data);
             return redirect('/adminfamily');
         }
