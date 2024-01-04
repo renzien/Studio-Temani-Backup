@@ -59,7 +59,6 @@ class Posting extends Controller
     public function pricelist() {
         $postprice = [
             'pricelisthomes' => PricelistHome::find(1),
-            'selfphotos' => SelfPhoto::find(1),
             'creativespaces' => CreativeSpace::find(1),
         ];
 
@@ -114,6 +113,14 @@ class Posting extends Controller
         return view('admin.layouts.adPriceFamily', $postfamily);
     }
 
+    public function selfphotoPosting() {
+        $postselfphoto = [
+            'selfphotos' => SelfPhoto::all()
+        ];
+
+        return view('admin.layouts.adPriceSelf', $postselfphoto);
+    }
+
     // Update Home
     public function editHome(Request $request, Home $home) {
         $request->validate([
@@ -136,7 +143,7 @@ class Posting extends Controller
             ];
             
             $home->update($data);
-            return redirect('/adminhome');
+            return redirect('/adminhome')->with('success', 'Data Berhasil Diubah');
         }
 
         return redirect('/adminhome');
@@ -163,7 +170,7 @@ class Posting extends Controller
             ];
             
             $about->update($data);
-            return redirect('/adminabout');
+            return redirect('/adminabout')->with('success', 'Data Berhasil Diubah');
         }
 
         return redirect('/adminabout');
@@ -190,7 +197,7 @@ class Posting extends Controller
             ];
             
             $studio->update($data);
-            return redirect('/adminstudiopost');
+            return redirect('/adminstudiopost')->with('success', 'Data Berhasil Diubah');
         }
 
         return redirect('/adminstudiopost');
@@ -217,7 +224,7 @@ class Posting extends Controller
             ];
             
             $pricelist->update($data);
-            return redirect('/adminpricepost');
+            return redirect('/adminpricepost')->with('success', 'Data Berhasil Diubah');
         }
 
         return redirect('/adminpricepost');
@@ -229,7 +236,7 @@ class Posting extends Controller
         ];
 
         $contact->update($data);
-        return redirect('/admincontact');
+        return redirect('/admincontact')->with('success', 'Data Berhasil Diubah');
     }
 
     // Update Pricelist
@@ -254,7 +261,7 @@ class Posting extends Controller
             ];
             
             $pricelisthome->update($data);
-            return redirect('/adminprice');
+            return redirect('/adminprice')->with('success', 'Data Berhasil Diubah');
         }
 
         return redirect('/adminprice');
@@ -281,7 +288,7 @@ class Posting extends Controller
             ];
             
             $inquiry->update($data);
-            return redirect('/admininquiry');
+            return redirect('/admininquiry')->with('success', 'Data Berhasil Diubah');
         }
 
         return redirect('/admininquiry');
@@ -326,29 +333,54 @@ class Posting extends Controller
             ];
 
             $family->update($data);
-            return redirect('/adminfamily');
+            return redirect('/adminfamily')->with('success', 'Data Berhasil Diubah');
         }
 
         return redirect('/adminfamily');
     }
 
     public function editSelfPhoto(Request $request, SelfPhoto $selfphoto) {
-        $data = [
-            'title' => $request->input('title'),
-            'tagone' => $request->input('tagone'),
-            'descone' => $request->input('descone'),
-            'tagtwo' => $request->input('tagtwo'),
-            'desctwo' => $request->input('desctwo'),
-            'unit' => $request->input('unit'),
-            'price' => $request->input('price'),
-            'descprice' => $request->input('descprice'),
-            'unitprice' => $request->input('unitprice'),
-            'pricetwo' => $request->input('pricetwo'),
-            'descpricetwo' => $request->input('descpricetwo'),
-        ];
+        $request->validate([
+            'title' => 'required',
+            'tag1' => 'required',
+            'desc1' => 'required',
+            'tag2' => 'required',
+            'desc2' => 'required',
+            'unit1' => 'required',
+            'price1' => 'required',
+            'descprice1' => 'required',
+            'unit2' => 'required',
+            'price2' => 'required',
+            'descprice2' => 'required',
+        ]);
 
-        $selfphoto->update($data);
-        return redirect('/adminprice');
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = $file->getClientOriginalName();
+            $folder = uniqid() . '-' . now()->timestamp;
+            $file->storeAs('public/selfphoto-image/' . $folder, $filename);
+            $save = $folder . '/' . $filename;
+
+            $data = [
+                'title' => $request->input('title'),
+                'tag1' => $request->input('tag1'),
+                'desc1' => $request->input('desc1'),
+                'tag2' => $request->input('tag2'),
+                'desc2' => $request->input('desc2'),
+                'unit1' => $request->input('unit1'),
+                'price1' => $request->input('price1'),
+                'descprice1' => $request->input('descprice1'),
+                'unit2' => $request->input('unit2'),
+                'price2' => $request->input('price2'),
+                'descprice2' => $request->input('descprice2'),
+                'photo' => $save
+            ];
+
+            $selfphoto->update($data);
+            return redirect('/adminselfphoto')->with('success', 'Data Berhasil Diubah');
+        }
+
+        return redirect('/adminselfphoto');
     }
 
     public function editCreativeSpace(Request $request, CreativeSpace $creativespace) {
@@ -396,7 +428,7 @@ class Posting extends Controller
             ];
             
             $homestudio->update($data);
-            return redirect('/adminstudio');
+            return redirect('/adminstudio')->with('success', 'Data Berhasil Diubah');
         }
 
         return redirect('/adminstudio');
@@ -431,7 +463,7 @@ class Posting extends Controller
             ];
             
             $studioequip->update($data);
-            return redirect('/adminequip');
+            return redirect('/adminequip')->with('success', 'Data Berhasil Diubah');
         }
 
         return redirect('/adminequip');
@@ -458,7 +490,7 @@ class Posting extends Controller
             ];
             
             $quote->update($data);
-            return redirect('/adminquote');
+            return redirect('/adminquote')->with('success', 'Data Berhasil Diubah');
         }
 
         return redirect('/adminquote');
@@ -476,6 +508,6 @@ class Posting extends Controller
         ];
 
         $package->update($data);
-        return redirect('/adminpackage');
+        return redirect('/adminpackage')->with('success', 'Data Berhasil Diubah');
     }
 }

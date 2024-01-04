@@ -88,7 +88,7 @@
     <section class="grid grid-cols-2">
         <div class="bg-studio-temani">
             <div class="flex items-center justify-center mt-24 mb-20">
-                <img class="rounded-3xl" src="assets/img/self-photo-3.png" alt="Studio Temani Studio">
+                <img class="rounded-3xl" src="{{ asset('storage/selfphoto-image/'. $selfphotos->photo) }}" alt="Studio Temani Studio">
             </div>
         </div>
         <div class="studio text-black pr-10">
@@ -98,33 +98,33 @@
             </div>
             <div class="py-10 ml-20 mr-28 text-end">
                 <div class="font-quicksand py-8" data-aos="fade-down" data-aos-duration="700">
-                    <h3 class="text-2xl font-bold leading-normal">{{ $selfphotos->tagone }}</h3>
+                    <h3 class="text-2xl font-bold leading-normal">{{ $selfphotos->tag1 }}</h3>
                     <div class="text-lg leading-normal">
-                        {!! $selfphotos->descone !!}
+                        {!! $selfphotos->desc1 !!}
                     </div>
                 </div>
                 <div class="font-quicksand pb-20" data-aos="fade-down" data-aos-duration="800">
-                    <h3 class="text-2xl font-bold leading-normal">{{ $selfphotos->tagtwo }}</h3>
+                    <h3 class="text-2xl font-bold leading-normal">{{ $selfphotos->tag2 }}</h3>
                     <div class="text-lg leading-normal">
-                        {!! $selfphotos->desctwo !!}
+                        {!! $selfphotos->desc2 !!}
                     </div>
                 </div>
                 <div class="flex justify-end font-quicksand">
                     <div class="flex flex-col items-end justify-end">
                         <div class="flex" data-aos="fade-down" data-aos-duration="900">
-                            <h3 class="text-2xl font-bold leading-normal pr-20">{{ $selfphotos->unit }}</h3>
-                            <h3 class="text-2xl font-bold leading-normal">{{ $selfphotos->price }}</h3>
+                            <h3 class="text-2xl font-bold leading-normal pr-20">{{ $selfphotos->unit1 }}</h3>
+                            <h3 class="text-2xl font-bold leading-normal">{{ $selfphotos->price1 }} K</h3>
                         </div>
                         <div class="text-lg leading-normal" data-aos="fade-down" data-aos-duration="1000">
-                            {!! $selfphotos->descprice !!}
+                            {!! $selfphotos->descprice1 !!}
                         </div>
                         <div class="border-b py-3 w-3/4"></div>
                         <div class="flex py-3" data-aos="fade-down" data-aos-duration="1100">
-                            <h3 class="text-2xl font-bold leading-normal pr-20">{{ $selfphotos->unitprice }}</h3>
-                            <h3 class="text-2xl font-bold leading-normal">{{ $selfphotos->pricetwo }}</h3>
+                            <h3 class="text-2xl font-bold leading-normal pr-20">{{ $selfphotos->unit2 }}</h3>
+                            <h3 class="text-2xl font-bold leading-normal">{{ $selfphotos->price2 }} K</h3>
                         </div>
                         <div class="text-lg leading-normal pl-15" data-aos="fade-down" data-aos-duration="1200">
-                            {!! $selfphotos->descpricetwo !!}
+                            {!! $selfphotos->descprice2 !!}
                         </div>
                     </div>
                 </div>
@@ -140,43 +140,52 @@
             </div>
             <div class="text-justify py-10 ml-20 mr-28">
                 <div class="font-quicksand py-8" data-aos="fade-down" data-aos-duration="700">
-                    <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->tagone }}</h3>
+                    <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->tag1 }}</h3>
                     <div class="text-lg leading-normal">
-                        {!! $creativespaces->descone !!}
+                        {!! $creativespaces->desc1 !!}
                     </div>
                 </div>
                 <div class="font-quicksand pb-15" data-aos="fade-down" data-aos-duration="800">
-                    <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->tagtwo }}</h3>
+                    <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->tag2 }}</h3>
                     <div class="text-lg leading-normal">
-                        {!! $creativespaces->desctwo !!}
+                        {!! $creativespaces->desc2 !!}
                     </div>
                 </div>
                 <div class="font-quicksand pb-15" data-aos="fade-down" data-aos-duration="900">
-                    <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->tagthree }}</h3>
+                    <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->tag3 }}</h3>
                     <div class="text-lg leading-normal">
-                        {!! $creativespaces->descthree !!}
+                        {!! $creativespaces->desc3 !!}
                     </div>
                 </div>
                 <div class="font-quicksand pb-15" data-aos="fade-down" data-aos-duration="1000">
-                    <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->tagfour }}</h3>
+                    <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->tag4 }}</h3>
+                    <div class="text-lg leading-normal">
+                        {!! $creativespaces->desc4 !!}
+                    </div>
                 </div>
                 <div class="font-quicksand pb-15" data-aos="fade-down" data-aos-duration="1100">
-                    <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->tagfive }}</h3>
+                    <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->tag5 }}</h3>
+                    <div class="text-lg leading-normal">
+                        {!! $creativespaces->desc5 !!}
+                    </div>
                 </div>
                 <div class="font-quicksand">
                     <div class="flex flex-row" data-aos="fade-down" data-aos-duration="1200">
-                        <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->unit }}</h3>
-                        <h3 class="text-2xl font-bold leading-normal pl-22">{{ $creativespaces->price }}</h3>
+                        <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->unit1 }}</h3>
+                        <h3 class="text-2xl font-bold leading-normal pl-22">{{ $creativespaces->price1 }}</h3>
+                    </div>
+                    <div class="text-lg leading-normal mt-5" data-aos="fade-down" data-aos-duration="1400">
+                        {!! $creativespaces->descprice1 !!}
                     </div>
                 </div>
                 <div class="border-b py-3 w-3/5"></div>
                 <div class="font-quicksand py-5">
                     <div class="flex flex-row" data-aos="fade-down" data-aos-duration="1300">
-                        <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->unitprice }}</h3>
-                        <h3 class="text-2xl font-bold leading-normal pl-22">{{ $creativespaces->pricetwo }}</h3>
+                        <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->unit2 }}</h3>
+                        <h3 class="text-2xl font-bold leading-normal pl-22">{{ $creativespaces->price2 }}</h3>
                     </div>
                     <div class="text-lg leading-normal mt-5" data-aos="fade-down" data-aos-duration="1400">
-                        {!! $creativespaces->descpricetwo !!}
+                        {!! $creativespaces->descprice2 !!}
                     </div>
                 </div>
             </div>

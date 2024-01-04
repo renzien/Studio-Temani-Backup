@@ -56,6 +56,7 @@ Route::put('/adminhome/{contact}/editcontact', [Posting::class, 'editContact'])-
 Route::get('/adminprice', [Posting::class, 'pricelist']);
 Route::get('/admininquiry', [Posting::class, 'inquiryPosting']);
 Route::get('/adminfamily', [Posting::class, 'pricefamilyPosting']);
+Route::get('/adminselfphoto', [Posting::class, 'selfphotoPosting']);
 
 // Edit Function Admin
 Route::put('/adminprice/{pricelisthome}', [Posting::class, 'editPricelistHome'])->name('editPricelistHome');

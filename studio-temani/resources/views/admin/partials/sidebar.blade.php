@@ -63,6 +63,7 @@
                         'adminquote',
                         'adminpackage',
                         'adminfamily',
+                        'adminselfphoto',
                         'admininquiry',
                         'adminprice',
                     ])
@@ -151,7 +152,7 @@
                                 </li>
 
                                 <li class="submenu-item">
-                                    <a href="#" class="submenu-link">
+                                    <a href="/adminselfphoto" class="submenu-link">
                                         Self-Photo Post
                                     </a>
                                 </li>

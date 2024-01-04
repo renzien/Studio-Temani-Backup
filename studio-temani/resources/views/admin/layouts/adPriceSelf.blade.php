@@ -1,13 +1,13 @@
-@extends('admin.pricelistpost')
-@section('title', 'Edit Price Family')
-@section('pricefamilyeditor')
+@extends('admin.selfposting')
+@section('title', 'Editor Self Posting')
+@section('selfphotoeditor')
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Posting Pricelist Family</h3>
+                    <h3>Posting Self-Photo</h3>
                     <p class="text-subtitle text-muted">
-                        List Postingan Untuk Yang Tertera pada Posting Pricelist
+                        List Postingan Untuk Yang Tertera pada Posting Self-Photo
                     </p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
@@ -23,7 +23,7 @@
                                 Pricelist
                             </li>
                             <li class="breadcrumb-item Booked" aria-current="page">
-                                Pricelist Family Post
+                                Self-Photo Post
                             </li>
                         </ol>
                     </nav>
@@ -34,7 +34,7 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">List Postingan</h5>
-                    <p class="text-subtitle text-muted">Postingan Untuk Pricelist</p>
+                    <p class="text-subtitle text-muted">Postingan Untuk Self-Photo</p>
                 </div>
                 <div class="card-body">
                     @if (session('success'))
@@ -52,13 +52,13 @@
                                 <th>Foto</th>
                             </tr>
                         </thead>
-                        @foreach ($familys as $fm)
+                        @foreach ($selfphotos as $sp)
                             <tbody>
                                 <tr>
-                                    <td>{{ $fm->title }}</td>
-                                    <td>{{ $fm->tag1 }}</td>
-                                    <td>{{ $fm->unit1 }}</td>
-                                    <td>{{ $fm->photo }}</td>
+                                    <td>{{ $sp->title }}</td>
+                                    <td>{{ $sp->tag1 }}</td>
+                                    <td>{{ $sp->unit1 }}</td>
+                                    <td>{{ $sp->photo }}</td>
                                     <td>
                                         <button type="button" class="btn btn-sm btn-info block" data-bs-toggle="modal"
                                             data-bs-target="#border-less">
@@ -77,8 +77,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="{{ route('editFamily', $fm->id) }}" method="POST"
-                                                            enctype="multipart/form-data">
+                                                        <form action="{{ route('editSelfPhoto', $sp->id) }}" method="POST" enctype="multipart/form-data">
                                                             @csrf
                                                             @method('PUT')
                                                             <div class="form-group">
@@ -92,10 +91,10 @@
                                                                     537x655</p>
                                                                 <input type="file" name="photo" id="photo"
                                                                     class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
-                                                          file:bg-gray-50 file:border-0
-                                                          file:bg-gray-100 file:me-4
-                                                          file:py-3 file:px-4
-                                                          dark:file:bg-gray-700 dark:file:text-gray-400">
+                                                  file:bg-gray-50 file:border-0
+                                                  file:bg-gray-100 file:me-4
+                                                  file:py-3 file:px-4
+                                                  dark:file:bg-gray-700 dark:file:text-gray-400">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="data1" class="form-label mt-2">Fitur +
@@ -155,95 +154,95 @@
                 </div>
             </div>
         </section>
-        @section('scriptPriceFamily')
-            <script>
-                function addFitur() {
-                    var container = document.getElementById("fiturContainer");
-                    var jumlahInput = container.getElementsByTagName("input").length;
+    @section('scriptPriceFamily')
+        <script>
+            function addFitur() {
+                var container = document.getElementById("fiturContainer");
+                var jumlahInput = container.getElementsByTagName("input").length;
 
-                    var inputBaru = document.createElement("input");
-                    inputBaru.type = "text";
-                    inputBaru.name = "tag" + jumlahInput;
-                    inputBaru.id = "tag" + jumlahInput;
-                    inputBaru.className = "form-control mt-2";
-                    inputBaru.placeholder = "Masukan Fitur";
+                var inputBaru = document.createElement("input");
+                inputBaru.type = "text";
+                inputBaru.name = "tag" + jumlahInput;
+                inputBaru.id = "tag" + jumlahInput;
+                inputBaru.className = "form-control mt-2";
+                inputBaru.placeholder = "Masukan Fitur";
 
-                    var newInput = document.createElement("input");
-                    newInput.type = "text";
-                    newInput.name = "desc" + jumlahInput;
-                    newInput.id = "desc" + jumlahInput;
-                    newInput.className = "form-control mt-2";
-                    newInput.placeholder = "Masukan Penjelasan Fitur";
+                var newInput = document.createElement("input");
+                newInput.type = "text";
+                newInput.name = "desc" + jumlahInput;
+                newInput.id = "desc" + jumlahInput;
+                newInput.className = "form-control mt-2";
+                newInput.placeholder = "Masukan Penjelasan Fitur";
 
-                    var labelBaru = document.createElement("label");
-                    labelBaru.htmlFor = 'data' + jumlahInput;
-                    labelBaru.className = "form-label mt-2";
-                    labelBaru.appendChild(document.createTextNode("Fitur + Deskripsi " + jumlahInput));
+                var labelBaru = document.createElement("label");
+                labelBaru.htmlFor = 'data' + jumlahInput;
+                labelBaru.className = "form-label mt-2";
+                labelBaru.appendChild(document.createTextNode("Fitur + Deskripsi " + jumlahInput));
 
-                    container.appendChild(labelBaru);
-                    container.appendChild(inputBaru);
-                    container.appendChild(newInput);
+                container.appendChild(labelBaru);
+                container.appendChild(inputBaru);
+                container.appendChild(newInput);
+            }
+
+            function deleteFitur() {
+                var container = document.getElementById("fiturContainer");
+                var jumlahInput = container.getElementsByTagName("input").length;
+
+                if (jumlahInput > 2) {
+                    container.removeChild(container.lastChild);
+                    container.removeChild(container.lastChild);
+                    container.removeChild(container.lastChild);
                 }
+            }
 
-                function deleteFitur() {
-                    var container = document.getElementById("fiturContainer");
-                    var jumlahInput = container.getElementsByTagName("input").length;
+            function addPacket() {
+                var container = document.getElementById("packageContainer");
+                var tambahInput = container.getElementsByTagName("input").length - 1;
 
-                    if (jumlahInput > 2) {
-                        container.removeChild(container.lastChild);
-                        container.removeChild(container.lastChild);
-                        container.removeChild(container.lastChild);
-                    }
+                var inputTambah = document.createElement("input");
+                inputTambah.type = "text";
+                inputTambah.name = "unit" + tambahInput;
+                inputTambah.id = "unit" + tambahInput;
+                inputTambah.className = "form-control mt-2";
+                inputTambah.placeholder = "Masukan Paket";
+
+                var inputBaru = document.createElement("input");
+                inputBaru.type = "number";
+                inputBaru.name = "price" + tambahInput;
+                inputBaru.id = "price" + tambahInput;
+                inputBaru.className = "form-control mt-2";
+                inputBaru.placeholder = "Masukan Harga";
+
+                var inputTambahan = document.createElement("input");
+                inputTambahan.type = "text";
+                inputTambahan.name = "descprice" + tambahInput;
+                inputTambahan.id = "descprice" + tambahInput;
+                inputTambahan.className = "form-control mt-2";
+                inputTambahan.placeholder = "Masukan Penjelasan Fitur";
+
+                var labelBaru = document.createElement("label");
+                labelBaru.htmlFor = 'unitlabel' + tambahInput;
+                labelBaru.className = "form-label mt-2";
+                labelBaru.appendChild(document.createTextNode("Paket + Deskripsi " + tambahInput));
+
+                container.appendChild(labelBaru);
+                container.appendChild(inputTambah);
+                container.appendChild(inputBaru);
+                container.appendChild(inputTambahan);
+            }
+
+            function deletePacket() {
+                var container = document.getElementById("packageContainer");
+                var jumlahInput = container.getElementsByTagName("input").length;
+
+                if (jumlahInput > 3) {
+                    container.removeChild(container.lastChild);
+                    container.removeChild(container.lastChild);
+                    container.removeChild(container.lastChild);
+                    container.removeChild(container.lastChild);
                 }
-
-                function addPacket() {
-                    var container = document.getElementById("packageContainer");
-                    var tambahInput = container.getElementsByTagName("input").length - 1;
-
-                    var inputTambah = document.createElement("input");
-                    inputTambah.type = "text";
-                    inputTambah.name = "unit" + tambahInput;
-                    inputTambah.id = "unit" + tambahInput;
-                    inputTambah.className = "form-control mt-2";
-                    inputTambah.placeholder = "Masukan Paket";
-
-                    var inputBaru = document.createElement("input");
-                    inputBaru.type = "number";
-                    inputBaru.name = "price" + tambahInput;
-                    inputBaru.id = "price" + tambahInput;
-                    inputBaru.className = "form-control mt-2";
-                    inputBaru.placeholder = "Masukan Harga";
-
-                    var inputTambahan = document.createElement("input");
-                    inputTambahan.type = "text";
-                    inputTambahan.name = "descprice" + tambahInput;
-                    inputTambahan.id = "descprice" + tambahInput;
-                    inputTambahan.className = "form-control mt-2";
-                    inputTambahan.placeholder = "Masukan Penjelasan Fitur";
-
-                    var labelBaru = document.createElement("label");
-                    labelBaru.htmlFor = 'unitlabel' + tambahInput;
-                    labelBaru.className = "form-label mt-2";
-                    labelBaru.appendChild(document.createTextNode("Paket + Deskripsi " + tambahInput));
-
-                    container.appendChild(labelBaru);
-                    container.appendChild(inputTambah);
-                    container.appendChild(inputBaru);
-                    container.appendChild(inputTambahan);
-                }
-
-                function deletePacket() {
-                    var container = document.getElementById("packageContainer");
-                    var jumlahInput = container.getElementsByTagName("input").length;
-
-                    if (jumlahInput > 3) {
-                        container.removeChild(container.lastChild);
-                        container.removeChild(container.lastChild);
-                        container.removeChild(container.lastChild);
-                        container.removeChild(container.lastChild);
-                    }
-                }
-            </script>
-        @endsection
-    </div>
+            }
+        </script>
+    @endsection
+</div>
 @endsection

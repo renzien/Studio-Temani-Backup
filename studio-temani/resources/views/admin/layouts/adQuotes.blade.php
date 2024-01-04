@@ -37,6 +37,12 @@
                     <p class="text-subtitle text-muted">Postingan Untuk Quotes</p>
                 </div>
                 <div class="card-body">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            <i class="ri-checkbox-circle-line"></i>
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>

@@ -14,16 +14,16 @@ return new class extends Migration
         Schema::create('selfphotos', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('tagone');
-            $table->text('descone');
-            $table->string('tagtwo');
-            $table->text('desctwo');
-            $table->string('unit');
-            $table->string('price');
-            $table->string('descprice');
-            $table->string('unitprice');
-            $table->string('pricetwo');
-            $table->string('descpricetwo');
+            $table->string('tag1');
+            $table->text('desc1');
+            $table->string('tag2');
+            $table->text('desc2');
+            $table->string('unit1');
+            $table->string('price1');
+            $table->string('descprice1');
+            $table->string('unit2');
+            $table->string('price2');
+            $table->string('descprice2');
             $table->string('photo');
             $table->timestamps();
         });

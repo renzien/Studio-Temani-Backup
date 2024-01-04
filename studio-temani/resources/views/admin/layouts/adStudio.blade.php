@@ -37,6 +37,12 @@
                     <p class="text-subtitle text-muted">Postingan Untuk Home</p>
                 </div>
                 <div class="card-body">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            <i class="ri-checkbox-circle-line"></i>
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
@@ -70,7 +76,8 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="{{ route('editStudio', $studio->id) }}" method="POST" enctype="multipart/form-data">
+                                                        <form action="{{ route('editStudio', $studio->id) }}" method="POST"
+                                                            enctype="multipart/form-data">
                                                             @csrf
                                                             @method('PUT')
                                                             <div class="form-group">
