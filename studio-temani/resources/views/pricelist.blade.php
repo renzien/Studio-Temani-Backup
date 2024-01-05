@@ -140,31 +140,31 @@
             </div>
             <div class="text-justify py-10 ml-20 mr-28">
                 <div class="font-quicksand py-8" data-aos="fade-down" data-aos-duration="700">
-                    <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->tag1 }}</h3>
+                    <h3 class="text-2xl font-bold leading-normal">//{{ $creativespaces->tag1 }}</h3>
                     <div class="text-lg leading-normal">
                         {!! $creativespaces->desc1 !!}
                     </div>
                 </div>
                 <div class="font-quicksand pb-15" data-aos="fade-down" data-aos-duration="800">
-                    <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->tag2 }}</h3>
+                    <h3 class="text-2xl font-bold leading-normal">//{{ $creativespaces->tag2 }}</h3>
                     <div class="text-lg leading-normal">
                         {!! $creativespaces->desc2 !!}
                     </div>
                 </div>
                 <div class="font-quicksand pb-15" data-aos="fade-down" data-aos-duration="900">
-                    <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->tag3 }}</h3>
+                    <h3 class="text-2xl font-bold leading-normal">//{{ $creativespaces->tag3 }}</h3>
                     <div class="text-lg leading-normal">
                         {!! $creativespaces->desc3 !!}
                     </div>
                 </div>
                 <div class="font-quicksand pb-15" data-aos="fade-down" data-aos-duration="1000">
-                    <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->tag4 }}</h3>
+                    <h3 class="text-2xl font-bold leading-normal">//{{ $creativespaces->tag4 }}</h3>
                     <div class="text-lg leading-normal">
                         {!! $creativespaces->desc4 !!}
                     </div>
                 </div>
                 <div class="font-quicksand pb-15" data-aos="fade-down" data-aos-duration="1100">
-                    <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->tag5 }}</h3>
+                    <h3 class="text-2xl font-bold leading-normal">//{{ $creativespaces->tag5 }}</h3>
                     <div class="text-lg leading-normal">
                         {!! $creativespaces->desc5 !!}
                     </div>
@@ -172,7 +172,7 @@
                 <div class="font-quicksand">
                     <div class="flex flex-row" data-aos="fade-down" data-aos-duration="1200">
                         <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->unit1 }}</h3>
-                        <h3 class="text-2xl font-bold leading-normal pl-22">{{ $creativespaces->price1 }}</h3>
+                        <h3 class="text-2xl font-bold leading-normal pl-22">{{ $creativespaces->price1 }} K</h3>
                     </div>
                     <div class="text-lg leading-normal mt-5" data-aos="fade-down" data-aos-duration="1400">
                         {!! $creativespaces->descprice1 !!}
@@ -182,7 +182,7 @@
                 <div class="font-quicksand py-5">
                     <div class="flex flex-row" data-aos="fade-down" data-aos-duration="1300">
                         <h3 class="text-2xl font-bold leading-normal">{{ $creativespaces->unit2 }}</h3>
-                        <h3 class="text-2xl font-bold leading-normal pl-22">{{ $creativespaces->price2 }}</h3>
+                        <h3 class="text-2xl font-bold leading-normal pl-22">{{ $creativespaces->price2 }} K</h3>
                     </div>
                     <div class="text-lg leading-normal mt-5" data-aos="fade-down" data-aos-duration="1400">
                         {!! $creativespaces->descprice2 !!}
@@ -192,7 +192,7 @@
         </div>
         <div class="bg-studio-temani">
             <div class="flex items-center justify-center mt-24 mb-20">
-                <img class="rounded-3xl" src="assets/img/creative-space-2.png" alt="Studio Temani About">
+                <img class="rounded-3xl" src="{{ asset('storage/creaspace-image/'. $creativespaces->photo) }}" alt="Studio Temani About">
             </div>
         </div>
     </section>

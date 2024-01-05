@@ -65,6 +65,7 @@
                         'adminfamily',
                         'adminselfphoto',
                         'admininquiry',
+                        'admincreativespace',
                         'adminprice',
                     ])
                         ? 'active'
@@ -158,7 +159,7 @@
                                 </li>
 
                                 <li class="submenu-item">
-                                    <a href="#" class="submenu-link">
+                                    <a href="/admincreativespace" class="submenu-link">
                                         Creative Studio Space Post
                                     </a>
                                 </li>

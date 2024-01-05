@@ -58,8 +58,7 @@ class Posting extends Controller
 
     public function pricelist() {
         $postprice = [
-            'pricelisthomes' => PricelistHome::find(1),
-            'creativespaces' => CreativeSpace::find(1),
+            'pricelisthomes' => PricelistHome::find(1)
         ];
 
         return view('admin.layouts.adminprice', $postprice);
@@ -119,6 +118,14 @@ class Posting extends Controller
         ];
 
         return view('admin.layouts.adPriceSelf', $postselfphoto);
+    }
+
+    public function creaspacePosting() {
+        $postcreaspace = [
+            'creativespaces' => CreativeSpace::all()
+        ];
+
+        return view('admin.layouts.adCreaspace', $postcreaspace);
     }
 
     // Update Home
@@ -332,6 +339,7 @@ class Posting extends Controller
                 'photo' => $save
             ];
 
+            dd($data);
             $family->update($data);
             return redirect('/adminfamily')->with('success', 'Data Berhasil Diubah');
         }
@@ -384,25 +392,60 @@ class Posting extends Controller
     }
 
     public function editCreativeSpace(Request $request, CreativeSpace $creativespace) {
-        $data = [
-            'title' => $request->input('title'),
-            'tagone' => $request->input('tagone'),
-            'descone' => $request->input('descone'),
-            'tagtwo' => $request->input('tagtwo'),
-            'desctwo' => $request->input('desctwo'),
-            'tagthree' => $request->input('tagthree'),
-            'descthree' => $request->input('descthree'),
-            'tagfour' => $request->input('tagfour'),
-            'tagfive' => $request->input('tagfive'),
-            'unit' => $request->input('unit'),
-            'price' => $request->input('price'),
-            'unitprice' => $request->input('unitprice'),
-            'pricetwo' => $request->input('pricetwo'),
-            'descpricetwo' => $request->input('descpricetwo'),
-        ];
+        $request->validate([
+            'title' => 'required',
+            'tag1' => 'required',
+            'desc1' => 'required',
+            'tag2' => 'required',
+            'desc2' => 'required',
+            'tag3' => 'required',
+            'desc3' => 'required',
+            'tag4' => 'required',
+            'desc4' => 'required',
+            'tag5' => 'required',
+            'desc5' => 'required',
+            'unit1' => 'required',
+            'price1' => 'required',
+            'descprice1' => 'required',
+            'unit2' => 'required',
+            'price2' => 'required',
+            'descprice2' => 'required',
+            'photo' => 'required'
+        ]);
 
-        $creativespace->update($data);
-        return redirect('/adminprice');
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $filename = $file->getClientOriginalName();
+            $folder = uniqid() . '-' . now()->timestamp;
+            $file->storeAs('public/creaspace-image/' . $folder, $filename);
+            $save = $folder . '/' . $filename;
+
+            $data = [
+                'title' => $request->input('title'),
+                'tag1' => $request->input('tag1'),
+                'desc1' => $request->input('desc1'),
+                'tag2' => $request->input('tag2'),
+                'desc2' => $request->input('desc2'),
+                'tag3' => $request->input('tag3'),
+                'desc3' => $request->input('desc3'),
+                'tag4' => $request->input('tag4'),
+                'desc4' => $request->input('desc4'),
+                'tag5' => $request->input('tag5'),
+                'desc5' => $request->input('desc5'),
+                'unit1' => $request->input('unit1'),
+                'price1' => $request->input('price1'),
+                'descprice1' => $request->input('descprice1'),
+                'unit2' => $request->input('unit2'),
+                'price2' => $request->input('price2'),
+                'descprice2' => $request->input('descprice2'),
+                'photo' => $save
+            ];
+            
+            $creativespace->update($data);
+            return redirect('/admincreativespace')->with('success', 'Data Berhasil Diubah');
+        }
+
+        return redirect('/admincreativespace');
     }
 
     // Update Studio
