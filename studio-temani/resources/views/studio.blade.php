@@ -59,7 +59,7 @@
             <div class="border-b border-white w-2/6 mb-5"></div>
         </div>
         <div class="flex flex-col items-center text-white font-quicksand pb-30" data-aos="fade-left" data-aos-duration="1200">
-            <h2 class="text-2xl font-light pt-5">{{ $quotes->author }}</h2>
+            <h2 class="text-2xl font-light pt-5">— {{ $quotes->author }} —</h2>
         </div>
     </section>
     <section class="font-quicksand pb-30">

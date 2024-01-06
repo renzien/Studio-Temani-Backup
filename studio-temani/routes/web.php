@@ -7,6 +7,7 @@ use App\Http\Controllers\Order;
 use App\Http\Controllers\Studio;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\BookingPost;
 use App\Http\Controllers\Posting;
 use App\Http\Controllers\Katalog;
 use App\Http\Controllers\Account;
@@ -23,6 +24,11 @@ Route::get('/pricelist', [Studio::class, 'pricelist']);
 
 // Booking
 Route::get('/book', [Book::class, 'book']);
+Route::get('/bookpost', [BookingPost::class, 'bookpost']);
+Route::get('/packagebook', [BookingPost::class, 'packagebook']);
+
+// Update Booking
+Route::put('/bookpost/{bookpost}', [BookingPost::class, 'editBookPost'])->name('editBookPost');
 
 // Order
 Route::get('/check/{book}', [Order::class, 'check'])->name('check');

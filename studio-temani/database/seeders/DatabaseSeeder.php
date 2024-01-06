@@ -13,6 +13,8 @@ use App\Models\Contact;
 use App\Models\PricelistHome;
 use App\Models\Book;
 use App\Models\CreaSpace;
+use App\Models\Bookpost;
+use App\Models\Packagebook;
 use App\Models\SelfSession;
 use App\Models\FamilyPhoto;
 use App\Models\Quote;
@@ -194,6 +196,16 @@ class DatabaseSeeder extends Seeder
             'time' => '10:00:00',
             'package' => 'Sesi Foto Keluarga',
             'phone' => '081234567890'
+        ]);
+
+        Bookpost::create([
+            'tagline' => 'Secure Your Moment With Us ! Book and chilling together ! with Studio Temani',
+            'photo' => 'bg-hero-2.jpg'
+        ]);
+
+        Packagebook::create([
+            'title' => 'Paket Studio Temani',
+            'desc' => 'Temukan paket-paket eksklusif kami yang dirancang khusus untuk memenuhi berbagai kebutuhan fotografi Anda. Dari paket pernikahan yang romantis hingga sesi potret keluarga yang hangat, setiap paket memberikan pengalaman fotografi yang tak terlupakan.'
         ]);
     }
 }

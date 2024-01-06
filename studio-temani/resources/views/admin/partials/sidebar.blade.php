@@ -168,6 +168,22 @@
                     </ul>
                 </li>
 
+                <li class="sidebar-item has-sub {{ request()->is(['bookpost', 'packagebook']) ? 'active' : '' }}">
+                    <a href="#" class="sidebar-link">
+                        <i class="ri-book-line"></i>
+                        <span>Booking</span>
+                    </a>
+
+                    <ul class="submenu">
+                        <li class="submenu-item">
+                            <a href="/bookpost" class="submenu-link">Hero Post</a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="/packagebook" class="submenu-link">Package Desc Post</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li
                     class="sidebar-item has-sub {{ request()->is(['selfphoto', 'familyphoto', 'creativestudio']) ? 'active' : '' }}">
                     <a href="#" class="sidebar-link">
@@ -177,11 +193,11 @@
 
                     <ul class="submenu">
                         <li class="submenu-item">
-                            <a href="/selfphoto" class="submenu-link">Self-Photo</a>
+                            <a href="/familyphoto" class="submenu-link">Family Photo</a>
                         </li>
 
                         <li class="submenu-item">
-                            <a href="/familyphoto" class="submenu-link">Family Photo</a>
+                            <a href="/selfphoto" class="submenu-link">Self-Photo</a>
                         </li>
 
                         <li class="submenu-item">

@@ -2,14 +2,12 @@
 @section('title', 'Booking Order')
 @section('container2')
     <header class="h-screen"
-        style="background-image: url('assets/img/bg-update.png'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+        style="background-image: url('{{ asset('storage/book-image/'. $bookposts->photo) }}'); background-position: center; background-repeat: no-repeat; background-size: cover;">
         <div class="flex items-center justify-center pt-20" data-aos="fade-up" data-aos-duration="1000">
             <img src="assets/img/logo-2.png" alt="Studio Temani Logo" class="w-1/5">
         </div>
         <div class="flex items-center justify-center pt-28 text-center" data-aos="fade-right" data-aos-duration="1100">
-            <h1 class="font-bold font-quicksand text-2xl text-white pr-35 pl-35">“Secure your moments now! Book with Studio
-                Temani and
-                ensure a reservation for your special photography session.”</h1>
+            <h1 class="font-bold font-quicksand text-2xl text-white pr-35 pl-35">{{ $bookposts->tagline }}</h1>
         </div>
         <div class="flex flex-col relative items-center justify-center text-white font-quicksand pt-52">
             <a href="#about-us">Scroll Down</a>
@@ -18,13 +16,10 @@
     </header>
     <section class="font-quicksand pb-30">
         <div class="flex items-center justify-center" data-aos="fade-down" data-aos-duration="1000">
-            <h1 class="font-bold text-3xl leading-normal pt-22">Our Packages</h1>
+            <h1 class="font-bold text-3xl leading-normal pt-22">{{ $packagebooks->title }}</h1>
         </div>
         <div class="flex items-center justify-center mt-5" data-aos="fade-down" data-aos-duration="1100">
-            <p class="font-normal text-xl leading-normal text-center pl-15 pr-15">Temukan paket-paket eksklusif kami yang
-                dirancang khusus untuk memenuhi berbagai kebutuhan fotografi Anda.
-                Dari paket pernikahan yang romantis hingga sesi potret keluarga yang hangat, setiap paket memberikan
-                pengalaman fotografi yang tak terlupakan.</p>
+            <p class="font-normal text-xl leading-normal text-center pl-15 pr-15">{{ $packagebooks->desc }}</p>
         </div>
         <div class="grid grid-cols-3 pt-15 pl-15">
             <div class="max-w-sm rounded-lg overflow-hidden shadow-lg" data-aos="flip-left" data-aos-duration="1000">
@@ -87,7 +82,7 @@
                 </div>
                 <div class="mb-5 text-white">
                     <label for="guest" class="mb-3 block text-xl font-medium">Banyak Orangnya ?</label>
-                    <input type="number" name="guest" id="guest" placeholder="5" min="1"
+                    <input type="number" name="guest" id="guest" placeholder="10" min="1"
                         class="w-full appearance-none rounded-lg border border-[#FFFFFF] bg-studio-temani py-3 px-3 text base font-medium outline-none focus:border-[#808080] focus:shadow-md">
                 </div>
                 <div class="-mx-3 flex flex-wrap">
