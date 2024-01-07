@@ -1,5 +1,5 @@
-<nav class="bg-white p-3">
-    <div class="flex items-center justify-between">
+<nav class="bg-white p-3 lg:p-3">
+    <div class="flex lg:flex items-center justify-between">
         <div class="w-36 ml-5">
             <img src="assets/img/logo.png" alt="Studio Temani">
         </div>

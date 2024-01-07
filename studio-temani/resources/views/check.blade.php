@@ -13,29 +13,20 @@
     <section class="grid grid-cols-2 gap-15 pl-21.5 pt-15.5">
         @include('partials.invoice')
         <div class="font-quicksand">
-            <h1 class="font-bold text-3xl">Choose Your Payment</h1>
-            <p class="font-normal text-2xl">Here is the list :</p>
-            <div class="grid grid-rows-4">
-                <div class="flex flex-row py-15">
-                    <input type="radio" name="qris" id="">
-                    <img class="w-1/2 ml-10" src="{{ asset('assets/img/QRIS.png') }}" alt="logo pembayaran">
-                </div>
-                <div class="flex flex-row py-10">
-                    <input type="radio" name="bri" id="">
-                    <img class="w-1/2 ml-10 h-20" src="{{ asset('assets/img/BRI.png') }}" alt="logo pembayaran">
-                </div>
-                <div class="flex flex-row py-10">
-                    <input type="radio" name="dana" id="">
-                    <img class="w-1/2 ml-10 h-20" src="{{ asset('assets/img/DANA.png') }}" alt="logo pembayaran">
-                </div>
-                <div class="flex flex-row py-10">
-                    <input type="radio" name="bca" id="">
-                    <img class="w-1/2 px-5" src="{{ asset('assets/img/BCA.webp') }}" alt="logo pembayaran">
-                </div>
+            <h1 class="font-bold text-3xl">Pembayaran Akan Dialihkan ke WhatsApp</h1>
+            <p class="font-normal mt-2 text-2xl">Pastikan Pesanan di Invoice benar ya!</p>
+            <div class="pr-20">
+                <p class="font-normal mt-5 text-justify text-lg">Tim kami akan memandu Anda melalui proses pembayaran dengan
+                    langkah-langkah
+                    yang sederhana melalui aplikasi WhatsApp. Jika Anda memiliki pertanyaan atau memerlukan bantuan
+                    tambahan,
+                    silakan hubungi kami melalui pesan WhatsApp. Kami siap membantu!</p>
             </div>
+            <a
+                href="https://wa.me/6287877689344?text=Halo%2C%20Berikut%20adalah%20pesanan%20saya%0A%0A-Nama%20depan:%20{{ $book->fullname }}%0A-Nama%20belakang:%20{{ $book->lastname }}%0A-Tanggal:%20{{ $book->date }}%0A-Waktu:%20{{ $book->time }}%0A-Paket:%20{{ $book->package }}"><button
+                    class="bg-slate-900 hover:bg-black text-white font-quicksand font-bold py-2 px-4 mt-10 mr-5 rounded-lg">
+                    <i class="ri-whatsapp-line"></i>
+                    Payment on WhatsApp</button></a>
         </div>
-    </section>
-    <section class="flex items-end justify-end pr-72.5 pt-10 pb-5">
-        <a href=""><button class="bg-slate-900 hover:bg-black text-white font-quicksand font-bold py-2 px-4 mr-5 rounded-lg">Selanjutnya</button></a>
     </section>
 @endsection
