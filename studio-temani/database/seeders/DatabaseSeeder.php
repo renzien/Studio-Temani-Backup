@@ -24,6 +24,7 @@ use App\Models\Family;
 use App\Models\SelfPhoto;
 use App\Models\CreativeSpace;
 use App\Models\HomeStudio;
+use App\Models\PhotoSave;
 use App\Models\StudioEquip;
 
 class DatabaseSeeder extends Seeder
@@ -206,6 +207,10 @@ class DatabaseSeeder extends Seeder
         Packagebook::create([
             'title' => 'Paket Studio Temani',
             'desc' => 'Temukan paket-paket eksklusif kami yang dirancang khusus untuk memenuhi berbagai kebutuhan fotografi Anda. Dari paket pernikahan yang romantis hingga sesi potret keluarga yang hangat, setiap paket memberikan pengalaman fotografi yang tak terlupakan.'
+        ]);
+
+        PhotoSave::create([
+            'photo' => 'bg-hero-2.jpg'
         ]);
     }
 }

@@ -29,6 +29,7 @@ Route::get('/packagebook', [BookingPost::class, 'packagebook']);
 
 // Update Booking
 Route::put('/bookpost/{bookpost}', [BookingPost::class, 'editBookPost'])->name('editBookPost');
+Route::put('/packagebook/{packagebook}', [BookingPost::class, 'editPackageBook'])->name('editPackageBook');
 
 // Order
 Route::get('/check/{book}', [Order::class, 'check'])->name('check');

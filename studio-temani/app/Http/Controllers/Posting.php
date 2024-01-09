@@ -339,7 +339,6 @@ class Posting extends Controller
                 'photo' => $save
             ];
 
-            dd($data);
             $family->update($data);
             return redirect('/adminfamily')->with('success', 'Data Berhasil Diubah');
         }

@@ -18,7 +18,7 @@ class BookingPost extends Controller
 
     public function packagebook() {
         $postpackagebook = [
-            'packagebooks' => Packagebook::find(1),
+            'packagebooks' => Packagebook::all(),
         ];
 
         return view('admin.layouts.adPackagebook', $postpackagebook);
@@ -49,5 +49,17 @@ class BookingPost extends Controller
         }
 
         return redirect('/bookpost');
+    }
+
+    // Update Package Booking
+
+    public function editPackageBook (Request $request, Packagebook $packagebook) {
+        $data = [
+            'title' => $request->input('title'),
+            'desc' => $request->input('desc')
+        ];
+
+        $packagebook->update($data);
+        return redirect ('/packagebook')->with('success', 'Data Berhasil Diubah');
     }
 }

@@ -223,6 +223,13 @@
                     </ul>
                 </li>
 
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="ri-camera-line"></i>
+                        <span>Hasil Foto</span>
+                    </a>
+                </li>
+
                 <li class="sidebar-item {{ request()->is(['tagihan']) ? 'active' : '' }}">
                     <a href="/tagihan" class="sidebar-link">
                         <i class="ri-bill-line"></i>

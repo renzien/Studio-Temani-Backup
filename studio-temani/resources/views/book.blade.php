@@ -18,8 +18,8 @@
         <div class="flex items-center justify-center" data-aos="fade-down" data-aos-duration="1000">
             <h1 class="font-bold text-3xl leading-normal pt-22">{{ $packagebooks->title }}</h1>
         </div>
-        <div class="flex items-center justify-center mt-5" data-aos="fade-down" data-aos-duration="1100">
-            <p class="font-normal text-xl leading-normal text-center pl-15 pr-15">{{ $packagebooks->desc }}</p>
+        <div class="flex items-center justify-center mt-5 font-normal text-xl leading-normal text-center pl-15 pr-15" data-aos="fade-down" data-aos-duration="1100">
+            {!! $packagebooks->desc !!}
         </div>
         <div class="grid grid-cols-3 pt-15 pl-15">
             <div class="max-w-sm rounded-lg overflow-hidden shadow-lg" data-aos="flip-left" data-aos-duration="1000">
