@@ -210,7 +210,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         PhotoSave::create([
-            'photo' => 'bg-hero-2.jpg'
+            'photo' => 'bg-hero-2.jpg',
+            'title' => 'Ini judul',
+            'desc' => 'Ini link google drive'
         ]);
     }
 }

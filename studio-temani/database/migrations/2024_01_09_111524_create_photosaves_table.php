@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('photosaves', function (Blueprint $table) {
             $table->id();
             $table->string('photo');
+            $table->string('title');
+            $table->text('desc');
             $table->timestamps();
         });
     }

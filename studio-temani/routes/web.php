@@ -5,6 +5,7 @@ use App\Http\Controllers\FirstPageController;
 use App\Http\Controllers\Book;
 use App\Http\Controllers\Order;
 use App\Http\Controllers\Studio;
+use App\Http\Controllers\Photo;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\BookingPost;
@@ -30,6 +31,15 @@ Route::get('/packagebook', [BookingPost::class, 'packagebook']);
 // Update Booking
 Route::put('/bookpost/{bookpost}', [BookingPost::class, 'editBookPost'])->name('editBookPost');
 Route::put('/packagebook/{packagebook}', [BookingPost::class, 'editPackageBook'])->name('editPackageBook');
+
+// Photo
+Route::get('/photo', [Photo::class, 'photo']);
+
+// Post Photo
+Route::post('/photo', [Photo::class, 'createPost'])->name('createPost');
+
+// Delete Photo
+Route::delete('/photo/{photosave}', [Photo::class, 'deletePost'])->name('deletePost');
 
 // Order
 Route::get('/check/{book}', [Order::class, 'check'])->name('check');
